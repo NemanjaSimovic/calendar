@@ -1,0 +1,12 @@
+.mat-card-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+       
+.text-styling{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 2rem;
+}

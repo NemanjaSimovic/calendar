@@ -1,0 +1,31 @@
+.whole-page{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.fill-cell{
+    height: 100%;
+    width: 100%;
+}
+.light-red-background{
+    background-color: rgb(177, 113, 113);
+}
+
+.choose-month{
+    display: flex;
+    justify-content: center;
+}
+
+  
+.centar {
+    margin-left: 8%;
+    width: 84%;
+    justify-content: center;
+    background-color: white;
+}
+
+.calendar-spacing{
+    padding-left: 15%;
+    padding-right: 15%;
+}

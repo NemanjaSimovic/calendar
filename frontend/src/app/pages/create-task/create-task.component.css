@@ -1,0 +1,36 @@
+mat-form-field {
+    width: 100%;
+  }
+button {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+  
+.loginDeo {
+  display: flex;
+  justify-content: center;
+}
+
+.loginDeo2 {
+  margin-left: 20%;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.full-width{
+    padding-top: 0.5rem;
+    padding-left: 3%;
+    padding-right: 3%;
+    width: 94%;
+}
+
+.button-margins {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.centered-content {
+    display: flex;
+    justify-content: center;
+}

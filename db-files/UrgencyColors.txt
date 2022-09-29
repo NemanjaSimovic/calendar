@@ -1,0 +1,14 @@
+[
+	{
+		"urgency": "urgent",
+		"color": "rgb(177, 113, 113)"
+	},
+	{
+		"urgency": "semi-urgent",
+		"color": "rgb(250, 210, 135)"
+	},
+	{
+		"urgency": "not-urgent",
+		"color": "rgb(177, 211, 164)"
+	}
+]

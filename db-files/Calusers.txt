@@ -1,0 +1,72 @@
+[
+	{
+		"username": "petarpetrovic",
+		"password": "Petar123",
+		"name": "Petar",
+		"surname": "Petrovic",
+  		"email": "petar@gmail.com"
+	},
+	{
+		"username": "mitarmitrovic",
+		"password": "Mitar123",
+		"name": "Mitar",
+		"surname": "Mitrovic",
+  		"email": "mitar@gmail.com"
+	},
+	{
+		"username": "zoranzoranic",
+		"password": "Zoran123",
+		"name": "Zoran",
+		"surname": "Zoranic",
+  		"email": "zoran@gmail.com"		
+	},
+	{
+		"username": "milicamilicic",
+		"password": "Milica123",
+		"name": "Milica",
+		"surname": "Milicic",
+  		"email": "milica@gmail.com"
+	},
+	{
+		"username": "jovanajovanovic",
+		"password": "Jovana123",
+		"name": "Jovana",
+		"surname": "Jovanovic",
+  		"email": "jovana@gmail.com"
+	},
+	{
+		"username": "ivanivanovic",
+		"password": "Ivan123",
+		"name": "Ivan",
+		"surname": "Ivanovic",
+  		"email": "ivan@gmail.com"
+	},
+	{
+		"username": "olgaolgic",
+		"password": "Olga123",
+		"name": "Olga",
+		"surname": "Olgic",
+  		"email": "olga@gmail.com"
+	},
+	{
+		"username": "markomarkovic",
+		"password": "Marko123",
+		"name": "Marko",
+		"surname": "Markovic",
+  		"email": "marko@gmail.com"
+	},
+	{
+		"username": "marinamarinovic",
+		"password": "Marina123",
+		"name": "Marina",
+		"surname": "Marinovic",
+  		"email": "marina@gmail.com"
+	},
+	{
+		"username": "zoricazoricic",
+		"password": "Zorica123",
+		"name": "Zorica",
+		"surname": "Zoricic",
+  		"email": "zorica@gmail.com"
+	}
+]

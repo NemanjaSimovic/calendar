@@ -1,0 +1,7 @@
+<div mat-button (click)="signalCurrentDay()" class="fill-content abs-pos" 
+[ngClass]="{'light-blue-background': taskList.length<1, 'light-red-background': taskList.length>=1}">
+        <h3>{{day}}</h3>
+        <div style="position: absolute; bottom: -22px; right: 0px;">
+        <h2 *ngIf="taskList.length > 0" style="color: rgb(207, 16, 16);">{{taskList.length}}</h2>
+    </div>
+</div>

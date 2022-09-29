@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "6328c2066ae6ed88c854e21c"
+  },
+  "username": "petarpetrovic",
+  "password": "Petar123",
+  "name": "Petar",
+  "surname": "Petrovic",
+  "email": "petar@gmail.com"
+},{
+  "_id": {
+    "$oid": "6328c2066ae6ed88c854e21d"
+  },
+  "username": "mitarmitrovic",
+  "password": "Mitar123",
+  "name": "Mitar",
+  "surname": "Mitrovic",
+  "email": "mitar@gmail.com"
+},{
+  "_id": {
+    "$oid": "6328c2066ae6ed88c854e21e"
+  },
+  "username": "zoranzoranic",
+  "password": "Zoran123",
+  "name": "Zoran",
+  "surname": "Zoranic",
+  "email": "zoran@gmail.com"
+},{
+  "_id": {
+    "$oid": "6328c2066ae6ed88c854e21f"
+  },
+  "username": "milicamilicic",
+  "password": "Milica123",
+  "name": "Milica",
+  "surname": "Milicic",
+  "email": "milica@gmail.com"
+},{
+  "_id": {
+    "$oid": "6328c2066ae6ed88c854e220"
+  },
+  "username": "jovanajovanovic",
+  "password": "Jovana123",
+  "name": "Jovana",
+  "surname": "Jovanovic",
+  "email": "jovana@gmail.com"
+},{
+  "_id": {
+    "$oid": "6328c2066ae6ed88c854e221"
+  },
+  "username": "ivanivanovic",
+  "password": "Ivan123",
+  "name": "Ivan",
+  "surname": "Ivanovic",
+  "email": "ivan@gmail.com"
+},{
+  "_id": {
+    "$oid": "6328c2066ae6ed88c854e222"
+  },
+  "username": "olgaolgic",
+  "password": "Olga123",
+  "name": "Olga",
+  "surname": "Olgic",
+  "email": "olga@gmail.com"
+},{
+  "_id": {
+    "$oid": "6328c2066ae6ed88c854e223"
+  },
+  "username": "markomarkovic",
+  "password": "Marko123",
+  "name": "Marko",
+  "surname": "Markovic",
+  "email": "marko@gmail.com"
+},{
+  "_id": {
+    "$oid": "6328c2066ae6ed88c854e224"
+  },
+  "username": "marinamarinovic",
+  "password": "Marina123",
+  "name": "Marina",
+  "surname": "Marinovic",
+  "email": "marina@gmail.com"
+},{
+  "_id": {
+    "$oid": "6328c2066ae6ed88c854e225"
+  },
+  "username": "zoricazoricic",
+  "password": "Zorica123",
+  "name": "Zorica",
+  "surname": "Zoricic",
+  "email": "zorica@gmail.com"
+}]

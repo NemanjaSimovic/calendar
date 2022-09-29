@@ -1,0 +1,29 @@
+<div>
+    <mat-card class="light-red-background">
+      <form>
+        <mat-form-field class="full-width">
+          <input type="text" matInput [(ngModel)]="username" name="username" placeholder="Username">
+          <!-- <mat-error>Username missing</mat-error> -->
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="password" matInput [(ngModel)]="password" name="password" placeholder="Password">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="password" matInput [(ngModel)]="confirmPassword" name="confirmpassword" placeholder="Confirm Password">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="text" matInput [(ngModel)]="name" name="name" placeholder="Name">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="text" matInput [(ngModel)]="surname" name="surname" placeholder="Surname">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="email" matInput [(ngModel)]="email" name="email" placeholder="email">
+        </mat-form-field>
+        <div class="centered-content">
+          <br>      
+          <button class="button-margins" mat-raised-button color="warn" (click)="registerUser()">Register</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>

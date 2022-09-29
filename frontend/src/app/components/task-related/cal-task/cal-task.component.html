@@ -1,0 +1,18 @@
+<!-- <div class="spacing-top"> -->
+    <mat-expansion-panel hideToggle style="margin-top: 0.5rem; background-color:cornflowerblue" [ngStyle]="{'background-color': task.color }">
+        <mat-expansion-panel-header>
+        <mat-panel-title  class="tsk" >
+            {{task.title}}
+            <hr>
+            {{startTimeString()}} - {{endTimeString()}}
+        </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p  class="tsk">{{task.description}}</p>
+        <br>
+        <p class="tsk">Participants: </p>
+        <p class="tsk" *ngFor="let usr of task.participantFullNames">{{usr}}</p>
+        <br>
+        <p class="tsk">Creator: </p>
+        <p class="tsk">{{task.creatorFullName}}</p>
+    </mat-expansion-panel>
+<!-- </div> -->

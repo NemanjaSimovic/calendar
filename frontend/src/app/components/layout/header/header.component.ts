@@ -1,0 +1,53 @@
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { Caluser } from 'src/app/models/caluser.model';
+import { UsersService } from 'src/app/services/users.service';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
+})
+export class HeaderComponent implements OnInit {
+
+  curUser?: Caluser | null;
+
+  loggedIn: boolean = false;
+
+  constructor(private router: Router, private userService: UsersService) { 
+    this.userService.curUserSubject.subscribe((data) => {
+      this.curUser = data;
+      if(this.curUser != null)
+        this.loggedIn = true;
+      else
+        this.loggedIn = false;
+    });
+  }
+
+  ngOnInit(): void {
+    this.curUser = this.userService.getCurUser();
+    if(this.curUser != null)
+        this.loggedIn = true;
+      else
+        this.loggedIn = false;
+  }
+
+  // ngOnDestroy(){
+  //   this.userService.curUserSubject.unsubscribe();
+  // }
+
+  printCurrentUser(){
+    console.log(this.curUser);
+    console.log(this.loggedIn);
+  }
+
+
+
+  logout(){
+    this.curUser = undefined;
+    this.userService.clearCurUser();
+    this.loggedIn = false;
+    this.router.navigate(['']);
+  }
+
+}

@@ -1,0 +1,47 @@
+<div>
+    <mat-card>
+      <form>
+        <mat-form-field class="full-width">
+            <input type="text" matInput [(ngModel)]="title" name="title" placeholder="Title">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input type="text" matInput [(ngModel)]="description" name="description" placeholder="Brief Description:">
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="taskDate" name="taskdate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <div class="ngx-timepicker-field-example full-width">
+            Start time:
+            <ngx-timepicker-field [format]="24" [defaultTime]="'23:11'" [(ngModel)]="startHM" name="startHM"></ngx-timepicker-field>
+        </div>
+        <div class="ngx-timepicker-field-example full-width">
+            End time:
+            <ngx-timepicker-field [format]="24" [defaultTime]="'23:11'" [(ngModel)]="endHM" name="endHM"></ngx-timepicker-field>
+        </div>
+
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Urgency: </mat-label>
+            <mat-select  [(value)]="color">
+            <mat-option *ngFor="let c of urgColors" value="{{c.color}}" >{{c.urgency}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field  class="full-width" appearance="fill">
+          <mat-label>Participants: </mat-label>
+          <mat-select [(value)]="selectedUsers" multiple>
+            <mat-option *ngFor="let user of allUsers" [value]="user">{{user.name}} {{user.surname}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+
+        <div class="centered-content">
+          <br>      
+          <button class="button-margins" mat-raised-button color="warn" (click)="addTask()">Add Task</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
