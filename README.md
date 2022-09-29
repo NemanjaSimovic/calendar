@@ -1,2 +1,24 @@
 # calendar
  Aplication used to create tasks, as well as keep track of them.
+
+## Enviroment set up:
+### Client: 
+Run in "frontend" folder 
+- npm install
+### Server:
+Run in "backend" folder
+- npm install
+- tsc (compiles typescript)
+### Database:
+MongoDB is being used for this project
+- load JSON files into the database
+
+## Run aplication:
+### Database:
+- make adequate conection with database
+### Server:
+Run in "backend" folder
+- npm run serve
+### Client: 
+Run in "frontend" folder 
+- ng serve
