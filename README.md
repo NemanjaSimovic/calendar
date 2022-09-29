@@ -5,10 +5,6 @@
 ### Client: 
 Run in "frontend" folder 
 - npm install
-### Server:
-Run in "backend" folder
-- npm install
-- tsc (compiles typescript)
 ### Database:
 MongoDB is being used for this project
 - load JSON files into the database
@@ -18,7 +14,7 @@ MongoDB is being used for this project
 - make adequate conection with database
 ### Server:
 Run in "backend" folder
-- npm run serve
+- dotnet run
 ### Client: 
 Run in "frontend" folder 
 - ng serve
