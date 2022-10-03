@@ -60,8 +60,14 @@ public class CaltaskController : ControllerBase
         if(body.creatorFullName != null)
             task.creatorFullName = body.creatorFullName;
         
-        task.startTime = CaltaskController.ToDateTime(startEpoch);
-        task.endTime = CaltaskController.ToDateTime(endEpoch);
+        if(body.startTime != null)
+            task.startTime = body.startTime;
+        
+        if(body.endTime != null)
+            task.endTime = body.endTime;
+        
+        // task.startTime = CaltaskController.ToDateTime(startEpoch);
+        // task.endTime = CaltaskController.ToDateTime(endEpoch);
 
         await _taskService.createAsync(task);
         return NoContent();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\portfolio\\ostalo\\calendarApp\\backend\\backend.csproj": {}
+    "D:\\github\\calendar-web-app\\calendar\\backend\\backend.csproj": {}
   },
   "projects": {
-    "D:\\portfolio\\ostalo\\calendarApp\\backend\\backend.csproj": {
+    "D:\\github\\calendar-web-app\\calendar\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\portfolio\\ostalo\\calendarApp\\backend\\backend.csproj",
+        "projectUniqueName": "D:\\github\\calendar-web-app\\calendar\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "D:\\portfolio\\ostalo\\calendarApp\\backend\\backend.csproj",
+        "projectPath": "D:\\github\\calendar-web-app\\calendar\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\Nemanja\\.nuget\\packages\\",
-        "outputPath": "D:\\portfolio\\ostalo\\calendarApp\\backend\\obj\\",
+        "outputPath": "D:\\github\\calendar-web-app\\calendar\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nemanja\\AppData\\Roaming\\NuGet\\NuGet.Config",

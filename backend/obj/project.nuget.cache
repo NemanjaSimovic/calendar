@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5ZEXrcxgtmP0L88r6drc0SdFIgbArInHDfh3t8twBA+g3X83xjY4rBtKf9WI+iEXwSuoB+MHC5lH1kjQWygCJQ==",
+  "dgSpecHash": "siVQ3g6lyzPCIB5iaFXn/lqChtyATis8oR2k9ONSbUPm5pu5r75k6ixJoeOR7xZKMtUEdxi0PRAa7Asuf/ADEg==",
   "success": true,
-  "projectFilePath": "D:\\portfolio\\ostalo\\calendarApp\\backend\\backend.csproj",
+  "projectFilePath": "D:\\github\\calendar-web-app\\calendar\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nemanja\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\Nemanja\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

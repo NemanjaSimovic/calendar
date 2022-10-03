@@ -50,10 +50,9 @@ export class CtasksService {
      startTime: Date, endTime: Date, participantIds: string[],
   participantFullNames: string[], creatorId: string, creatorFullName: string){
 
+    //we did not use this but can be useful for other cases, so let it be there.
     let startEpoch = startTime.getTime();
     let endEpoch = endTime.getTime();
-    console.log(startEpoch);
-    console.log(endEpoch);
 
 
     var body = {
@@ -63,7 +62,9 @@ export class CtasksService {
       participantIds: participantIds,
       participantFullNames: participantFullNames,
       creatorId: creatorId,
-      creatorFullName: creatorFullName
+      creatorFullName: creatorFullName,
+      startTime: startTime,
+      endTime: endTime
     }
 
     const params = new HttpParams().append('startEpoch', startEpoch).append('endEpoch', endEpoch);

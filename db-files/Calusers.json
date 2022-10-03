@@ -88,4 +88,13 @@
   "name": "Zorica",
   "surname": "Zoricic",
   "email": "zorica@gmail.com"
+},{
+  "_id": {
+    "$oid": "633ab190b418ea542ae89bf8"
+  },
+  "username": "urosurosevic",
+  "password": "Uros123",
+  "name": "Uros",
+  "surname": "Urosevic",
+  "email": "uros@gmail.com"
 }]

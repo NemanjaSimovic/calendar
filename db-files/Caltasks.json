@@ -4,9 +4,17 @@
   },
   "title": "Meeting",
   "description": "Very importnat meeting",
-  "color": "red",
-  "startTime": "2022-09-12T12:00:00.088Z",
-  "endTime": "2022-09-12T14:00:00.088Z",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1662984000000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1662991200000"
+    }
+  },
   "participantIds": [
     "6328c2066ae6ed88c854e21e",
     "6328c2066ae6ed88c854e21f",
@@ -25,9 +33,17 @@
   },
   "title": "Team Building",
   "description": "Table Tennis Games",
-  "color": "yellow",
-  "startTime": "2022-09-13T18:00:00.088Z",
-  "endTime": "2022-09-13T20:00:00.088Z",
+  "color": "rgb(250, 210, 135)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1663092000000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1663099200000"
+    }
+  },
   "participantIds": [
     "6328c2066ae6ed88c854e21c",
     "6328c2066ae6ed88c854e21d"
@@ -44,9 +60,17 @@
   },
   "title": "Movie Night",
   "description": "Premiere of a brand new movie Bullet Train",
-  "color": "red",
-  "startTime": "2022-09-14T21:45:00.088Z",
-  "endTime": "2022-09-14T23:55:00.088Z",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1663191900000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1663199700000"
+    }
+  },
   "participantIds": [
     "6328c2066ae6ed88c854e222",
     "6328c2066ae6ed88c854e223"
@@ -63,9 +87,17 @@
   },
   "title": "One more meeting",
   "description": "It is slightly less important",
-  "color": "green",
-  "startTime": "2022-09-12T17:00:00.088Z",
-  "endTime": "2022-09-12T18:00:00.088Z",
+  "color": "rgb(177, 211, 164)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1663002000000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1663005600000"
+    }
+  },
   "participantIds": [
     "6328c2066ae6ed88c854e21e",
     "6328c2066ae6ed88c854e21f",
@@ -84,9 +116,17 @@
   },
   "title": "Pool",
   "description": "Swimming Class At Tas",
-  "color": "yellow",
-  "startTime": "2022-10-12T12:00:00.088Z",
-  "endTime": "2022-10-12T14:00:00.088Z",
+  "color": "rgb(250, 210, 135)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1665576000000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1665583200000"
+    }
+  },
   "participantIds": [
     "6328c2066ae6ed88c854e21e",
     "6328c2066ae6ed88c854e21f",
@@ -105,9 +145,17 @@
   },
   "title": "Team Building 2",
   "description": "Gathering Near Republic Square",
-  "color": "red",
-  "startTime": "2023-01-12T20:00:00.088Z",
-  "endTime": "2023-01-12T22:00:00.088Z",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1673553600000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1673560800000"
+    }
+  },
   "participantIds": [
     "6328c2066ae6ed88c854e21e",
     "6328c2066ae6ed88c854e21f",
@@ -120,4 +168,159 @@
   ],
   "creatorId": "6328c2066ae6ed88c854e21e",
   "creatorFullName": "Zoran Zoranic"
+},{
+  "_id": {
+    "$oid": "632ce4ab8d31ed61fcf51ef3"
+  },
+  "title": "test",
+  "description": "Brief test description",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1666540800000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1666548000000"
+    }
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21c",
+    "6328c2066ae6ed88c854e21f",
+    "6328c2066ae6ed88c854e223"
+  ],
+  "participantFullNames": [
+    "Petar Petrovic",
+    "Milica Milicic",
+    "Marko Markovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e222",
+  "creatorFullName": "Olga Olgic"
+},{
+  "_id": {
+    "$oid": "633aa5b80328a970fb9d6d8b"
+  },
+  "title": "Team building",
+  "description": "Theater play, gathering half an hour before the start at the republic square",
+  "color": "rgb(177, 211, 164)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1665073800000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1665081000000"
+    }
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21d",
+    "6328c2066ae6ed88c854e21e",
+    "6328c2066ae6ed88c854e220",
+    "6328c2066ae6ed88c854e221",
+    "6328c2066ae6ed88c854e222",
+    "6328c2066ae6ed88c854e224"
+  ],
+  "participantFullNames": [
+    "Mitar Mitrovic",
+    "Zoran Zoranic",
+    "Jovana Jovanovic",
+    "Ivan Ivanovic",
+    "Olga Olgic",
+    "Marina Marinovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic"
+},{
+  "_id": {
+    "$oid": "633aa7810309c0d188261ef5"
+  },
+  "title": "test3",
+  "description": "test3",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1666260000000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1666267200000"
+    }
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21c",
+    "6328c2066ae6ed88c854e21f",
+    "6328c2066ae6ed88c854e222",
+    "6328c2066ae6ed88c854e225"
+  ],
+  "participantFullNames": [
+    "Petar Petrovic",
+    "Milica Milicic",
+    "Olga Olgic",
+    "Zorica Zoricic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic"
+},{
+  "_id": {
+    "$oid": "633ab14ab418ea542ae89bf7"
+  },
+  "title": "Meeting",
+  "description": "A very importnat meeting scheduled inside the office 365",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1666965600000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1666969200000"
+    }
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21d",
+    "6328c2066ae6ed88c854e21e",
+    "6328c2066ae6ed88c854e21f",
+    "6328c2066ae6ed88c854e220",
+    "6328c2066ae6ed88c854e222",
+    "6328c2066ae6ed88c854e223"
+  ],
+  "participantFullNames": [
+    "Mitar Mitrovic",
+    "Zoran Zoranic",
+    "Milica Milicic",
+    "Jovana Jovanovic",
+    "Olga Olgic",
+    "Marko Markovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic"
+},{
+  "_id": {
+    "$oid": "633ab1c8b418ea542ae89bf9"
+  },
+  "title": "Uros's task",
+  "description": "test",
+  "color": "rgb(177, 211, 164)",
+  "startTime": {
+    "$date": {
+      "$numberLong": "1664877600000"
+    }
+  },
+  "endTime": {
+    "$date": {
+      "$numberLong": "1664892000000"
+    }
+  },
+  "participantIds": [
+    "633ab190b418ea542ae89bf8"
+  ],
+  "participantFullNames": [
+    "Uros Urosevic"
+  ],
+  "creatorId": "633ab190b418ea542ae89bf8",
+  "creatorFullName": "Uros Urosevic"
 }]
