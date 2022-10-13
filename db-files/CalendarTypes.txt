@@ -1,0 +1,32 @@
+[
+	{
+		"name": "work",
+		"wholeday": false,
+		"canOverlap": false,
+		"knownByEveryone": true
+	},
+	{
+		"name": "not-overlapable-holiday",
+		"wholeday": true,
+		"canOverlap": false,
+		"knownByEveryone": true
+	},	
+	{
+		"name": "overlapable-holiday",
+		"wholeday": true,
+		"canOverlap": true,
+		"knownByEveryone": true
+	},
+	{
+		"name": "private-birthday",
+		"wholeday": true,
+		"canOverlap": true,
+		"knownByEveryone": false
+	},
+	{
+		"name": "fixed-time-tasks",
+		"wholeday": false,
+		"canOverlap": true,
+		"knownByEveryone": false
+	}
+]

@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16e5"
+  },
+  "name": "Birthday",
+  "emoji": "🎂",
+  "type": "holiday"
+},{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16e6"
+  },
+  "name": "Christmas",
+  "emoji": "🎄",
+  "type": "holiday"
+},{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16e7"
+  },
+  "name": "Easter",
+  "emoji": "🐰",
+  "type": "holiday"
+},{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16e8"
+  },
+  "name": "Halloween",
+  "emoji": "🎃",
+  "type": "holiday"
+},{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16e9"
+  },
+  "name": "Lunar new year",
+  "emoji": "🐲",
+  "type": "holiday"
+},{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16ea"
+  },
+  "name": "Winter holiday",
+  "emoji": "🏂",
+  "type": "holiday"
+},{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16eb"
+  },
+  "name": "Summer holiday",
+  "emoji": "🏖️",
+  "type": "holiday"
+},{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16ec"
+  },
+  "name": "Dental examination",
+  "emoji": "🦷",
+  "type": "scheduled"
+},{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16ed"
+  },
+  "name": "Medical examination",
+  "emoji": "🩺",
+  "type": "scheduled"
+},{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16ee"
+  },
+  "name": "Car repair",
+  "emoji": "🔧",
+  "type": "scheduled"
+},{
+  "_id": {
+    "$oid": "634846548ba9d90dfb6b16ef"
+  },
+  "name": "Work",
+  "emoji": "💼",
+  "type": "scheduled"
+}]

@@ -12,4 +12,10 @@ export class Caltask {
     participantFullNames?: string[];
     creatorId?: string;
     creatorFullName?: string;
+
+    calendarType: string = "work";
+    wholeday: boolean = false;
+    canOverlap: boolean = false;
+    knownByEveryone: boolean = true;
+    holidayIcon: string = "";
 }

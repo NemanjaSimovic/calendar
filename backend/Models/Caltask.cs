@@ -23,6 +23,18 @@ public class Caltask
     public string[]? participantFullNames { get; set;}
     public string? creatorId { get; set; }
     public string? creatorFullName { get; set; }
+
+    public string? calendarType { get; set; } = "work";
+
+    //true = wholeday - birthday or holiday
+    //false = fixedtime - fixed time of task, mostly work/business related or something like going to dentist, or car repair
+    public bool wholeday { get; set; } = false;
+
+    //true = when someone is adding new task it can not overlap with another markAsWork task (for the same person)
+    //false = can overlap with everything, used for rough timings of tasks/events of lesser importance as a rather reminder 
+    public bool canOverlap { get; set; } = true;
+
+    public string holidayIcon { get; set; } = "";
     
     public Caltask(){}
 

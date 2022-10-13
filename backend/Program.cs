@@ -8,6 +8,8 @@ builder.Services.AddSingleton<MongoDBService>();
 builder.Services.AddSingleton<CalUserService>();
 builder.Services.AddSingleton<CalTaskService>();
 builder.Services.AddSingleton<UrgencyColorService>();
+builder.Services.AddSingleton<CalendarTypeService>();
+builder.Services.AddSingleton<NameEmojiService>();
 
 // Add services to the container.
 
