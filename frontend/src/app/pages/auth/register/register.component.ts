@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Caluser } from 'src/app/models/caluser.model';
+import { Role } from 'src/app/models/role.model';
+import { User } from 'src/app/models/user.model';
+import { RoleService } from 'src/app/services/role.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -8,29 +10,42 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  username?: string;
-  password?: string;
-  confirmPassword?: string;
-  name?: string;
-  surname?: string;
-  email?: string;
+  username: string = "";
+  password: string = "";
+  confirmPassword: string = "";
+  name: string = "";
+  email: string = "";
+  roleId: number = -1;
 
-  constructor(private userService: UsersService) { }
+  allRoles: Role[] = [];
+
+  constructor(private userService: UsersService, private roleService: RoleService) { }
 
   ngOnInit(): void {
+    this.getAllRoles();
+  }
+
+
+  getAllRoles(){
+    this.roleService.getAllRoles().subscribe((data) => {
+      this.allRoles = data;
+    });
   }
 
   registerUser(){
-    if(!this.username || this.username == "" || !this.password || this.password == ""
-    || !this.name || this.name == "" || !this.surname || this.surname == ""
-    || !this.email || this.email == "" || this.password != this.confirmPassword){
-      console.log("Empty Field!");
+
+    if(this.username == "" || this.password == "" || this.name == "" || this.email == "" || this.roleId < 1)
+    {
+      alert("All form fields, must be filled!");
+      return;
+    }
+    if(this.password != this.confirmPassword){
+      alert("Password and confirmation password missmatch!");
       return;
     }
 
-    // console.log(this.username);
-    this.userService.registerUser(this.username, this.password, this.name, this.surname, this.email).subscribe((data) => {
-      console.log(data);
+    this.userService.registerUser(this.username, this.password, this.name, this.email, this.roleId).subscribe((data) => {
+      // console.log(data);
     });
   }
 }

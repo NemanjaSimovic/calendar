@@ -1,0 +1,348 @@
+[{
+  "_id": {
+    "$oid": "6328cb3e6ae6ed88c854e230"
+  },
+  "title": "Meeting",
+  "description": "Very importnat meeting",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2022-09-13T18:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21e",
+    "6328c2066ae6ed88c854e21f"
+,    "6328c2066ae6ed88c854e220"
+  ],
+  "participantFullNames": [
+    "Zoran Zoranic",
+    "Milica Milicic",
+    "Jovana Jovanovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+},{
+  "_id": {
+    "$oid": "6328cb3e6ae6ed88c854e231"
+  },
+  "title": "Team Building",
+  "description": "Table Tennis Games",
+  "color": "rgb(250, 210, 135)",
+  "startTime": {
+    "$date": "2022-09-13T18:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21c",
+    "6328c2066ae6ed88c854e21d"
+  ],
+  "participantFullNames": [
+    "Petar Petrovic",
+    "Mitar Mitrovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21c",
+  "creatorFullName": "Petar Petrovic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+},{
+  "_id": {
+    "$oid": "6328cb3e6ae6ed88c854e232"
+  },
+  "title": "Movie Night",
+  "description": "Premiere of a brand new movie Bullet Train",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e222",
+    "6328c2066ae6ed88c854e223"
+  ],
+  "participantFullNames": [
+    "Olga Olgic",
+    "Marko Markovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e222",
+  "creatorFullName": "Olga Olgic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+},{
+  "_id": {
+    "$oid": "6328cb3e6ae6ed88c854e233"
+  },
+  "title": "One more meeting",
+  "description": "It is slightly less important",
+  "color": "rgb(177, 211, 164)",
+  "startTime": {
+    "$date": "2022-09-13T18:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21e",
+    "6328c2066ae6ed88c854e21f",
+    "6328c2066ae6ed88c854e220"
+  ],
+  "participantFullNames": [
+    "Zoran Zoranic",
+    "Milica Milicic",
+    "Jovana Jovanovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+},{
+  "_id": {
+    "$oid": "6328cb3e6ae6ed88c854e234"
+  },
+  "title": "Pool",
+  "description": "Swimming Class At Tas",
+  "color": "rgb(250, 210, 135)",
+  "startTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21e",
+    "6328c2066ae6ed88c854e21f",
+    "6328c2066ae6ed88c854e220"
+  ],
+  "participantFullNames": [
+    "Zoran Zoranic",
+    "Milica Milicic",
+    "Jovana Jovanovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+},{
+  "_id": {
+    "$oid": "6328cb3e6ae6ed88c854e235"
+  },
+  "title": "Team Building 2",
+  "description": "Gathering Near Republic Square",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21e",
+    "6328c2066ae6ed88c854e21f",
+    "6328c2066ae6ed88c854e220"
+  ],
+  "participantFullNames": [
+    "Zoran Zoranic",
+    "Milica Milicic",
+    "Jovana Jovanovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+},{
+  "_id": {
+    "$oid": "632ce4ab8d31ed61fcf51ef3"
+  },
+  "title": "test",
+  "description": "Brief test description",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21c",
+    "6328c2066ae6ed88c854e21f",
+    "6328c2066ae6ed88c854e223"
+  ],
+  "participantFullNames": [
+    "Petar Petrovic",
+    "Milica Milicic",
+    "Marko Markovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e222",
+  "creatorFullName": "Olga Olgic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+},{
+  "_id": {
+    "$oid": "633aa5b80328a970fb9d6d8b"
+  },
+  "title": "Team building",
+  "description": "Theater play, gathering half an hour before the start at the republic square",
+  "color": "rgb(177, 211, 164)",
+  "startTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21d",
+    "6328c2066ae6ed88c854e21e",
+    "6328c2066ae6ed88c854e220",
+    "6328c2066ae6ed88c854e221",
+    "6328c2066ae6ed88c854e222",
+    "6328c2066ae6ed88c854e224"
+  ],
+  "participantFullNames": [
+    "Mitar Mitrovic",
+    "Zoran Zoranic",
+    "Jovana Jovanovic",
+    "Ivan Ivanovic",
+    "Olga Olgic",
+    "Marina Marinovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+},{
+  "_id": {
+    "$oid": "633aa7810309c0d188261ef5"
+  },
+  "title": "test3",
+  "description": "test3",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21c",
+    "6328c2066ae6ed88c854e21f",
+    "6328c2066ae6ed88c854e222",
+    "6328c2066ae6ed88c854e225"
+  ],
+  "participantFullNames": [
+    "Petar Petrovic",
+    "Milica Milicic",
+    "Olga Olgic",
+    "Zorica Zoricic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+},{
+  "_id": {
+    "$oid": "633ab14ab418ea542ae89bf7"
+  },
+  "title": "Meeting",
+  "description": "A very importnat meeting scheduled inside the office 365",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "6328c2066ae6ed88c854e21d",
+    "6328c2066ae6ed88c854e21e",
+    "6328c2066ae6ed88c854e21f",
+    "6328c2066ae6ed88c854e220",
+    "6328c2066ae6ed88c854e222",
+    "6328c2066ae6ed88c854e223"
+  ],
+  "participantFullNames": [
+    "Mitar Mitrovic",
+    "Zoran Zoranic",
+    "Milica Milicic",
+    "Jovana Jovanovic",
+    "Olga Olgic",
+    "Marko Markovic"
+  ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+},{
+  "_id": {
+    "$oid": "633ab1c8b418ea542ae89bf9"
+  },
+  "title": "Uros's task",
+  "description": "test",
+  "color": "rgb(177, 211, 164)",
+  "startTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2022-09-13T20:00:00.000+02:00"
+  },
+  "participantIds": [
+    "633ab190b418ea542ae89bf8"
+  ],
+  "participantFullNames": [
+    "Uros Urosevic"
+  ],
+  "creatorId": "633ab190b418ea542ae89bf8",
+  "creatorFullName": "Uros Urosevic",
+  "calendarType": "Work",
+  "wholeday": false,
+  "canOverlap": false,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "💼"
+}]

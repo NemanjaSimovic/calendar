@@ -2,7 +2,7 @@ import { Platform } from '@angular/cdk/platform';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { Caltask } from 'src/app/models/caltask.model';
+import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 import { CtasksService } from 'src/app/services/ctasks.service';
 import { MonthpickerDateAdapter } from './monthpicker-date-adapter';
 
@@ -21,7 +21,7 @@ import { MonthpickerDateAdapter } from './monthpicker-date-adapter';
 })
 export class GlobalCalendarComponent implements OnInit {
 
-  
+
   //dummy for looping ngfor
   numSequence(n: number): Array<number> {
     return Array(n);
@@ -37,12 +37,12 @@ export class GlobalCalendarComponent implements OnInit {
   public maxDaysOfTheMonth = 30;
   public dt: Date = new Date(2022, 8, 9);
   public dayOfTheWeek: number = 1;
-  public unfixedTasks: Caltask[] = [];
-  public tasks: Caltask[] = [];
-  public daysOfTheMonth: Caltask[][] = new Array(31);
+  public unfixedTasks: Calendartaskextended[] = [];
+  public tasks: Calendartaskextended[] = [];
+  public daysOfTheMonth: Calendartaskextended[][] = new Array(31);
 
   public selectedDay: number = 0;
-  
+
   @Input()
   public monthAndYear: Date = new Date(2022, 8);
 
@@ -153,11 +153,11 @@ export class GlobalCalendarComponent implements OnInit {
       this.selectedDay = 0;
       this.setWeekDayOfFirstOdTheMonth();
       this.setNumberOfDaysForSelectedMonth();
-      
+
       this.unfixedTasks = data;
       this.changeStringsToDates();
       this.tasks = this.unfixedTasks;
-      
+
       this.emptymatrix();
       this.assignTasksByDay();
     });

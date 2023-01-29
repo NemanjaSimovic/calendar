@@ -21,6 +21,7 @@ public class Caltask
     public DateTime endTime { get; set; }
     public string[]? participantIds { get; set;}
     public string[]? participantFullNames { get; set;}
+    public bool appliesToEveryone { get; set; } = false;
     public string? creatorId { get; set; }
     public string? creatorFullName { get; set; }
 
@@ -34,7 +35,8 @@ public class Caltask
     //false = can overlap with everything, used for rough timings of tasks/events of lesser importance as a rather reminder 
     public bool canOverlap { get; set; } = true;
 
-    public string holidayIcon { get; set; } = "";
+    public bool knownByEveryone { get; set; } = true;
+    public string emoji { get; set; } = "";
     
     public Caltask(){}
 

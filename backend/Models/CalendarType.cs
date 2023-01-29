@@ -18,8 +18,7 @@ public class CalendarType
     //false = can overlap with everything, used for rough timings of tasks/events of lesser importance as a rather reminder. 
     public bool canOverlap { get; set; } = false;
     
-    public bool knownByEveryone { get; set; } = true;
-    
+    public bool knownByEveryone { get; set; } = true;    
     
     public CalendarType(){}
 

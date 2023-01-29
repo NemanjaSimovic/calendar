@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Caltask } from 'src/app/models/caltask.model';
+import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 
 @Component({
   selector: 'app-cal-task-list',
@@ -9,7 +9,7 @@ import { Caltask } from 'src/app/models/caltask.model';
 export class CalTaskListComponent implements OnInit {
 
   @Input()
-  tasks: Caltask[] | undefined;
+  tasks: Calendartaskextended[] | undefined;
 
   constructor() { }
 

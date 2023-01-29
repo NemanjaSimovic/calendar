@@ -25,21 +25,21 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Urgency: </mat-label>
-            <mat-select  [(value)]="color">
-            <mat-option *ngFor="let c of urgColors" value="{{c.color}}" >{{c.urgency}}</mat-option>
+            <mat-select  [(value)]="rGBString">
+            <mat-option *ngFor="let c of urgColors" value="{{c.rGBString}}" >{{c.name}}</mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field  class="full-width" appearance="fill">
           <mat-label>Participants: </mat-label>
           <mat-select [(value)]="selectedUsers" multiple>
-            <mat-option *ngFor="let user of allUsers" [value]="user">{{user.name}} {{user.surname}}</mat-option>
+            <mat-option *ngFor="let user of allUsers" [value]="user">{{user.name}}</mat-option>
           </mat-select>
         </mat-form-field>
-        
+
 
         <div class="centered-content">
-          <br>      
+          <br>
           <button class="button-margins" mat-raised-button color="warn" (click)="addTask()">Add Task</button>
         </div>
       </form>

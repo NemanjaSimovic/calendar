@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Caluser } from 'src/app/models/caluser.model';
+import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -10,11 +10,11 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class HeaderComponent implements OnInit {
 
-  curUser?: Caluser | null;
+  curUser?: User | null;
 
   loggedIn: boolean = false;
 
-  constructor(private router: Router, private userService: UsersService) { 
+  constructor(private router: Router, private userService: UsersService) {
     this.userService.curUserSubject.subscribe((data) => {
       this.curUser = data;
       if(this.curUser != null)

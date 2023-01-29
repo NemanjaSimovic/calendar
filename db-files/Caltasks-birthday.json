@@ -1,0 +1,212 @@
+[
+{
+  "title": "Zoran's Birthday",
+  "description": "Important birthday",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2022-11-18T00:00:00.000+01:00"
+  },
+  "endTime": {
+    "$date": "2022-11-18T23:59:59.000+01:00"
+  },
+  "participantIds": [],
+  "participantFullNames": [],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Working holiday/Global birthday",
+  "wholeday": true,
+  "canOverlap": true,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "🎂"
+},
+{
+  "title": "Petar's Birthday",
+  "description": "Important birthday",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2022-11-29T00:00:00.000+01:00"
+  },
+  "endTime": {
+    "$date": "2022-11-29T23:59:59.000+01:00"
+  },
+  "participantIds": [],
+  "participantFullNames": [],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Working holiday/Global birthday",
+  "wholeday": true,
+  "canOverlap": true,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "🎂"
+},
+{
+  "title": "Milica's Birthday",
+  "description": "Important birthday",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2023-04-14T00:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2023-04-14T23:59:59.000+02:00"
+  },
+  "participantIds": [],
+  "participantFullNames": [],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Working holiday/Global birthday",
+  "wholeday": true,
+  "canOverlap": true,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "🎂"
+},
+{
+  "title": "Jovana's Birthday",
+  "description": "Important birthday",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2023-07-24T00:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2023-07-24T23:59:59.000+02:00"
+  },
+  "participantIds": [],
+  "participantFullNames": [],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Working holiday/Global birthday",
+  "wholeday": true,
+  "canOverlap": true,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "🎂"
+},
+{
+  "title": "Olga's Birthday",
+  "description": "Important birthday",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2023-07-09T00:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2023-07-09T23:59:59.000+02:00"
+  },
+  "participantIds": [],
+  "participantFullNames": [],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Working holiday/Global birthday",
+  "wholeday": true,
+  "canOverlap": true,
+  "knownByEveryone": true,
+  "appliesToEveryone": false,
+  "emoji": "🎂"
+},
+{
+  "title": "Wife's Birthday",
+  "description": "Important birthday",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2023-10-10T00:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2023-10-10T23:59:59.000+02:00"
+  },
+  "participantIds": [ "6328c2066ae6ed88c854e21e" ],
+  "participantFullNames": [ "Zoran Zoranic" ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Working holiday/Global birthday",
+  "wholeday": true,
+  "canOverlap": true,
+  "knownByEveryone": false,
+  "appliesToEveryone": false,
+  "emoji": "🎂"
+},
+{
+  "title": "Son's Birthday",
+  "description": "Twins important birthday",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2023-07-09T00:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2023-07-09T23:59:59.000+02:00"
+  },
+  "participantIds": [ "6328c2066ae6ed88c854e21e" ],
+  "participantFullNames": [ "Zoran Zoranic" ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Working holiday/Global birthday",
+  "wholeday": true,
+  "canOverlap": true,
+  "knownByEveryone": false,
+  "appliesToEveryone": false,
+  "emoji": "🎂"
+},
+{
+  "title": "Daughter's Birthday",
+  "description": "Twins important birthday",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2023-07-09T00:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2023-07-09T23:59:59.000+02:00"
+  },
+  "participantIds": [ "6328c2066ae6ed88c854e21e" ],
+  "participantFullNames": [ "Zoran Zoranic" ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Working holiday/Global birthday",
+  "wholeday": true,
+  "canOverlap": true,
+  "knownByEveryone": false,
+  "appliesToEveryone": false,
+  "emoji": "🎂"
+},
+{
+  "title": "Godfather's Birthday",
+  "description": "Important birthday",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2023-02-25T00:00:00.000+01:00"
+  },
+  "endTime": {
+    "$date": "2023-02-25T23:59:59.000+01:00"
+  },
+  "participantIds": [ "6328c2066ae6ed88c854e21e" ],
+  "participantFullNames": [ "Zoran Zoranic" ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Working holiday/Global birthday",
+  "wholeday": true,
+  "canOverlap": true,
+  "knownByEveryone": false,
+  "appliesToEveryone": false,
+  "emoji": "🎂"
+},
+{
+  "title": "Miljana's Birthday",
+  "description": "Important birthday",
+  "color": "rgb(177, 113, 113)",
+  "startTime": {
+    "$date": "2023-04-06T00:00:00.000+02:00"
+  },
+  "endTime": {
+    "$date": "2023-04-06T23:59:59.000+02:00"
+  },
+  "participantIds": [ "6328c2066ae6ed88c854e21e" ],
+  "participantFullNames": [ "Zoran Zoranic" ],
+  "creatorId": "6328c2066ae6ed88c854e21e",
+  "creatorFullName": "Zoran Zoranic",
+  "calendarType": "Working holiday/Global birthday",
+  "wholeday": true,
+  "canOverlap": true,
+  "knownByEveryone": false,
+  "appliesToEveryone": false,
+  "emoji": "🎂"
+}
+]

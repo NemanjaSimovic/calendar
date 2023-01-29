@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Caltask } from '../models/caltask.model';
+import { Calendartaskextended } from '../models/calendartaskextended.model';
 import { UsersService } from './users.service';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class CtasksService {
 
   constructor(private http: HttpClient, private router: Router, private userService: UsersService) { }
 
-  uri = 'http://localhost:5124';
+  uri = 'http://localhost:5188';
 
   getCaltasksByMonth(month: Date){
     var mnt = month.getMonth() + 1;
@@ -22,9 +22,9 @@ export class CtasksService {
       mStr = "0" + mnt.toString();
     }
     var monthStr =  month.getFullYear().toString() + "/" + mStr + "/01";
-    
+
     const params = new HttpParams().append('month', monthStr);
-    return this.http.get<Caltask[]>(`${this.uri}/task/get/bymonth`, {params: params});
+    return this.http.get<Calendartaskextended[]>(`${this.uri}/task/get/bymonth`, {params: params});
   }
 
   getCaltasksByIdAndMonth(month: Date){
@@ -43,12 +43,12 @@ export class CtasksService {
     }else{
       params = new HttpParams().append('month', monthStr).append('id', " ");
     }
-    return this.http.get<Caltask[]>(`${this.uri}/task/get/byidandmonth`, {params: params});
+    return this.http.get<Calendartaskextended[]>(`${this.uri}/task/get/byidandmonth`, {params: params});
   }
 
   addNewCaltask(title: string, description: string, color: string,
-     startTime: Date, endTime: Date, participantIds: string[],
-  participantFullNames: string[], creatorId: string, creatorFullName: string){
+     startTime: Date, endTime: Date, participantIds: number[],
+  participantFullNames: string[], creatorId: number, creatorFullName: string){
 
     //we did not use this but can be useful for other cases, so let it be there.
     let startEpoch = startTime.getTime();
@@ -71,5 +71,5 @@ export class CtasksService {
 
     return this.http.post(`${this.uri}/task/add`, body, {params: params});
   }
-  
+
 }

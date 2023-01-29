@@ -2,40 +2,40 @@
   "_id": {
     "$oid": "634833308ba9d90dfb6b16da"
   },
-  "name": "work",
+  "name": "Work",
   "wholeday": false,
   "canOverlap": false,
-  "knownByEveryone": true
+  "knownByEveryone": true,
 },{
   "_id": {
     "$oid": "634833308ba9d90dfb6b16db"
   },
-  "name": "not-overlapable-holiday",
+  "name": "Holiday",
   "wholeday": true,
   "canOverlap": false,
-  "knownByEveryone": true
+  "knownByEveryone": true,
 },{
   "_id": {
     "$oid": "634833308ba9d90dfb6b16dc"
   },
-  "name": "overlapable-holiday",
+  "name": "Working holiday/Global birthday",
   "wholeday": true,
   "canOverlap": true,
-  "knownByEveryone": true
+  "knownByEveryone": true,
 },{
   "_id": {
     "$oid": "634833308ba9d90dfb6b16dd"
   },
-  "name": "private-birthday",
+  "name": "Private Birthday",
   "wholeday": true,
   "canOverlap": true,
-  "knownByEveryone": false
+  "knownByEveryone": false,
 },{
   "_id": {
     "$oid": "634833308ba9d90dfb6b16de"
   },
-  "name": "fixed-time-tasks",
+  "name": "Fixed time responsabilities",
   "wholeday": false,
   "canOverlap": true,
-  "knownByEveryone": false
+  "knownByEveryone": false,
 }]

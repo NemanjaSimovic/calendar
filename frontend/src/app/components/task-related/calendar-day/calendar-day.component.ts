@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import { Caltask } from 'src/app/models/caltask.model';
+import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 
 @Component({
   selector: 'app-calendar-day',
@@ -9,7 +9,7 @@ import { Caltask } from 'src/app/models/caltask.model';
 export class CalendarDayComponent implements OnInit {
 
   @Input()
-  public taskList: Caltask[] = [];
+  public taskList: Calendartaskextended[] = [];
   @Input()
   public day: number = 0;
 

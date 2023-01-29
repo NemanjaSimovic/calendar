@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Caltask } from 'src/app/models/caltask.model';
+import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 
 @Component({
   selector: 'app-cal-task',
@@ -9,18 +9,18 @@ import { Caltask } from 'src/app/models/caltask.model';
 export class CalTaskComponent implements OnInit {
 
   @Input()
-  task: Caltask = new Caltask();
+  task: Calendartaskextended = new Calendartaskextended();
 
-  
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   startTimeString(): string{
-    let d = this.task.startTime;
-    if(d){
-      let h = d.getHours();
+    let startTime = this.task.startTime;
+    if(startTime){
+      let h = startTime.getHours();
     }
     let hours = this.task.startTime.getHours();
     let hoursString: string = "";
@@ -50,9 +50,9 @@ export class CalTaskComponent implements OnInit {
   }
 
   endTimeString(): string{
-    let d = this.task.endTime;
-    if(d){
-      let h = d.getHours();
+    let endTime = this.task.endTime;
+    if(endTime){
+      let h = endTime.getHours();
     }
     let hours = this.task.endTime.getHours();
     let hoursString: string = "";

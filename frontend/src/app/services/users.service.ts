@@ -1,8 +1,8 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Caluser } from 'src/app/models/caluser.model';
-import { Subject } from 'rxjs';
+import { User } from 'src/app/models/user.model';
+import { catchError, Subject, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,50 +11,65 @@ export class UsersService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  uri = 'http://localhost:5124';
+  uri = 'http://localhost:5188/api/User';
 
-  getCurUser(): Caluser | null{
+  getCurUser(): User | null{
     var user = localStorage.getItem("curUser");
     if(user)
       return JSON.parse(user);
     else
       return null;
   }
-  setCurUser(user: Caluser): void{
+  setCurUser(user: User): void{
     localStorage.setItem('curUser', JSON.stringify(user));
   }
   clearCurUser(): void{
     localStorage.setItem('curUser', "");
   };
 
-  public curUserSubject =  new Subject<Caluser>();
+  public curUserSubject =  new Subject<User>();
 
-  emmitCurUser(user: Caluser){
+  emmitCurUser(user: User){
     this.curUserSubject.next(user);
   }
 
   loginUser(username: string, password: string){
-    const params = new HttpParams().append('username', username).append('password', password);
-    
-    return this.http.get<Caluser>(`${this.uri}/user/get/byuserandpass`, {params: params});
+    var body = {
+      username: username,
+      password: password
+    }
+    return  this.http.post<User>(`${this.uri}/login`, body)
+    .pipe(catchError(this.handleError));
   }
 
-  registerUser(username: string, password: string, name: string, surname: string, email: string){
+  registerUser(username: string, password: string, name: string, email: string, roleId: number){
     // const params = new HttpParams().append('user', user);
-    
     var body = {
       username: username,
       password: password,
       name: name,
-      surname: surname,
-      email: email
+      email: email,
+      roleId: roleId
     }
 
-    return this.http.post<Caluser>(`${this.uri}/user/post/register`, body);
+    return this.http.post<string>(`${this.uri}/register`, body)
+    // .pipe(catchError(this.handleError));
   }
 
   getAllUsers(){
-    return this.http.get<Caluser[]>(`${this.uri}/user/get/all`);
+    return this.http.get<User[]>(`${this.uri}`)
+    .pipe(catchError(this.handleError));
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      console.error('An error occurred:', error.error);
+    } else {
+      alert(error.error);
+      console.error(
+        `Backend returned code ${error.status}, body was: `, error.error);
+    }
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
 }
