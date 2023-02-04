@@ -1,22 +1,25 @@
 ﻿using Calendar_api.Data;
+using Calendar_api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Calendar_api.Services
 {
     public class EmojiService
     {
         private readonly DataContext _context;
-        private static EmojiService _instance;
-        private EmojiService(DataContext context)
+        public EmojiService(DataContext context)
         {
             _context = context;
         }
-        public static EmojiService GetInstance(DataContext context)
+
+        public async Task<List<Emoji>> GetAllAsync()
         {
-            if (_instance == null)
-            {
-                _instance = new EmojiService(context);
-            }
-            return _instance;
+            return await _context.Emoji.ToListAsync();
+        }
+        public async Task AddItem(Emoji emoji)
+        {
+            _context.Emoji.Add(emoji);
+            await _context.SaveChangesAsync();
         }
     }
 }

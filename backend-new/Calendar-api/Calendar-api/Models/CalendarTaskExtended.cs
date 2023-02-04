@@ -20,7 +20,7 @@
         public int CalendarColorId { get; set; }
         public string CalendarColorRGBString { get; set; }
 
-        public int? EmojiId { get; set; }
+        public int EmojiId { get; set; } = 0;
         public string emojiEmoticon { get; set; }
 
         public bool KnownForEveryone { get; set; }

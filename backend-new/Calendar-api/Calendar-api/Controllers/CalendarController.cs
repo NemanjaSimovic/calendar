@@ -18,7 +18,7 @@ namespace Calendar_api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Calendar>>> GetAllCalendars()
+        public async Task<ActionResult<List<Calendar>>> GetAllAsync()
         {
             return Ok(await _calendarService.GetAllAsync());
         }

@@ -10,7 +10,7 @@
         public int CalendarId { get; set; }
         public int CreatorId { get; set; }
         public int CalendarColorId { get; set; }
-        public int? EmojiId { get; set; }
+        public int EmojiId { get; set; } = 0;
         public bool KnownForEveryone { get; set; }
         public string? CaptionForEveryone { get; set; }
         public string? DescriptionForEveryone { get; set; }

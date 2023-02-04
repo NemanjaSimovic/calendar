@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
       this.userService.setCurUser(data);
       this.userService.emmitCurUser(data);
       if(this.userService.getCurUser() != null){
-        console.log("User Logged!");
         this.router.navigate([""]);
+        alert("Welcome " + this.userService.getCurUser()?.name + "!")
       }else {
         console.log("Wrong username or password!");
       }

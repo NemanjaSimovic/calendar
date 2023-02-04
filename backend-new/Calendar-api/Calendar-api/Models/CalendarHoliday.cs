@@ -11,7 +11,7 @@
         public int userId { get; set; }
         public int CalendarId { get; set; }
         public int ColorId { get; set; }
-        public int? EmojiId { get; set; }
-        public bool Overlapable { get; set; }
+        public int EmojiId { get; set; }
+        public bool Working { get; set; }
     }
 }
