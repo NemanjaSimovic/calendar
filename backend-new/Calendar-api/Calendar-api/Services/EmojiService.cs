@@ -21,5 +21,10 @@ namespace Calendar_api.Services
             _context.Emoji.Add(emoji);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<Emoji?> GetItemById(int id)
+        {
+            return await _context.Emoji.FirstOrDefaultAsync(x => x.Id == id);
+        }
     }
 }

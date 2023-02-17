@@ -5,9 +5,9 @@ import { FormControl } from '@angular/forms';
 import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 import { User } from 'src/app/models/user.model';
 import { Urgencycolor } from 'src/app/models/calendarcolor.model';
-import { CtasksService } from 'src/app/services/ctasks.service';
-import { UrgencycolorsService } from 'src/app/services/urgencycolors.service';
-import { UsersService } from 'src/app/services/users.service';
+import { CalendartaskService } from 'src/app/services/calenartask.service';
+import { CalendarcolorService } from 'src/app/services/calendarcolor.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-create-task',
@@ -44,7 +44,7 @@ export class CreateTaskComponent implements OnInit {
   creatorFullName: string = "";
   creatorId: number = 0;
 
-  constructor(private urgencyColorsService: UrgencycolorsService, private usersService: UsersService, private ctasksService: CtasksService) { }
+  constructor(private urgencyColorsService: CalendarcolorService, private usersService: UserService, private ctasksService: CalendartaskService) { }
 
   ngOnInit(): void {
     this.loadColors();

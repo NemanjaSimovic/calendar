@@ -6,7 +6,7 @@ import { Urgencycolor } from '../models/calendarcolor.model';
 @Injectable({
   providedIn: 'root'
 })
-export class UrgencycolorsService {
+export class CalendarcolorService {
 
   constructor(private http: HttpClient, private router: Router) { }
 

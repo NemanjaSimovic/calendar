@@ -13,7 +13,7 @@ namespace Calendar_api.Controllers
 
         public UserCalendarTaskController(DataContext dataContext)
         {
-            _userCalendarTaskService = UserCalendarTaskService.GetInstance(dataContext);
+            _userCalendarTaskService = new UserCalendarTaskService(dataContext);
         }
     }
 }

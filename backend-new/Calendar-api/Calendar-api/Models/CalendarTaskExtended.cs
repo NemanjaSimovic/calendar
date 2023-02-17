@@ -11,14 +11,15 @@
         public int CalendarId { get; set; }
         public string CalendarName { get; set; }
 
-        public int[] ParticipantIds { get; set; }
-        public string[] ParticipantNames { get; set; }
+        public List<int> ParticipantIds { get; set; }
+        public List<string> ParticipantNames { get; set; }
 
         public int CreatorId { get; set; }
         public string CreatorName { get; set; }
 
         public int CalendarColorId { get; set; }
-        public string CalendarColorRGBString { get; set; }
+        public string CalendarColorBackgroundColor { get; set; }
+        public string? CalendarColorFontColor { get; set; }
 
         public int EmojiId { get; set; } = 0;
         public string emojiEmoticon { get; set; }
@@ -26,5 +27,34 @@
         public bool KnownForEveryone { get; set; }
         public string? CaptionForEveryone { get; set; }
         public string? DescriptionForEveryone { get; set; }
+
+        public CalendarTaskExtended(int id, string title, string description,
+            DateTime startTime, DateTime endTime, int calendarId, string calendarName,
+            List<int> participantIds, List<string> participantNames, int creatorId, string creatorName,
+            int calendarColorId, string calendarColorBackgroundColor, int emojiId, string emojiEmoticon,
+            bool knownForEveryone, string? calendarColorFontColor, string? captionForEveryone,
+            string? descriptionForEveryone)
+
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            StartTime = startTime;
+            EndTime = endTime;
+            CalendarId = calendarId;
+            CalendarName = calendarName;
+            ParticipantIds = participantIds;
+            ParticipantNames = participantNames;
+            CreatorId = creatorId;
+            CreatorName = creatorName;
+            CalendarColorId = calendarColorId;
+            CalendarColorBackgroundColor = calendarColorBackgroundColor;
+            CalendarColorFontColor = calendarColorFontColor;
+            EmojiId = emojiId;
+            this.emojiEmoticon = emojiEmoticon;
+            KnownForEveryone = knownForEveryone;
+            CaptionForEveryone = captionForEveryone;
+            DescriptionForEveryone = descriptionForEveryone;
+        }
     }
 }

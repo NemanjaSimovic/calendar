@@ -4,6 +4,8 @@ using Calendar_api.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Calendar_api.Controllers
 {
@@ -19,9 +21,10 @@ namespace Calendar_api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<User>> GetAllUsers()
+        public async Task<ActionResult<List<User>>> GetAllAsync()
         {
-            return Ok(await _userService.GetAllAsync());
+            List<User> allUsers = await _userService.GetAllAsync();
+            return Ok(JsonSerializer.Serialize(allUsers));
         }
 
         [HttpPost]
@@ -30,19 +33,19 @@ namespace Calendar_api.Controllers
         {
             if (body.Username == null || body.Password == null)
             {
-                return Unauthorized("Username or password empty!");
+                return Unauthorized(JsonSerializer.Serialize("Username or password empty!"));
             }
             bool usrExists = await _userService.UsernameExists(body.Username);
             if (usrExists == false)
             {
-                return Unauthorized("No username in database found!");
+                return Unauthorized(JsonSerializer.Serialize("No username in database found!"));
             }
             var user = await _userService.GetByUsernameAndPass(body.Username, body.Password);
             if (user == null)
             {
-                return Unauthorized("Wrong password!");
+                return Unauthorized(JsonSerializer.Serialize("Wrong password!"));
             }
-            return Ok(user);
+            return Ok(JsonSerializer.Serialize(user));
         }
 
         [HttpPost]
@@ -51,15 +54,15 @@ namespace Calendar_api.Controllers
         {
             if (body.Username == null)
             {
-                return Unauthorized("Username or password empty!");
+                return Unauthorized(JsonSerializer.Serialize("Username or password empty!"));
             }
             bool usrExists = await _userService.UsernameExists(body.Username);
             if (usrExists)
             {
-                return Unauthorized("Username already taken!");
+                return Unauthorized(JsonSerializer.Serialize("Username already taken!"));
             }
             await _userService.AddItem(body);
-            return Ok("User successfully registered!");
+            return Ok(JsonSerializer.Serialize("User successfully registered!"));
         }
     }
 }

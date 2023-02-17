@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CtasksService } from './ctasks.service';
+import { CalendarcolorService } from './calendarcolor.service';
 
-describe('CtasksService', () => {
-  let service: CtasksService;
+describe('UrgencycolorsService', () => {
+  let service: CalendarcolorService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CtasksService);
+    service = TestBed.inject(CalendarcolorService);
   });
 
   it('should be created', () => {

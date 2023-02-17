@@ -7,7 +7,7 @@ import { catchError, Subject, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class UserService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -43,7 +43,6 @@ export class UsersService {
   }
 
   registerUser(username: string, password: string, name: string, email: string, roleId: number){
-    // const params = new HttpParams().append('user', user);
     var body = {
       username: username,
       password: password,
@@ -53,7 +52,7 @@ export class UsersService {
     }
 
     return this.http.post<string>(`${this.uri}/register`, body)
-    // .pipe(catchError(this.handleError));
+    .pipe(catchError(this.handleError));
   }
 
   getAllUsers(){
@@ -63,13 +62,16 @@ export class UsersService {
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
+      alert("Status code: 0. This is usually due to CORS problems.");
       console.error('An error occurred:', error.error);
     } else {
       alert(error.error);
       console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
+        `Backend returned code ${error.status}, with message: `, error.error);
     }
-    return throwError(() => new Error('Something bad happened; please try again later.'));
+    return throwError(() => new Error(error.error));
   }
+
+
 
 }

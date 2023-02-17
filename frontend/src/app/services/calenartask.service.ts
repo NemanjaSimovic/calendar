@@ -2,14 +2,14 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Calendartaskextended } from '../models/calendartaskextended.model';
-import { UsersService } from './users.service';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CtasksService {
+export class CalendartaskService {
 
-  constructor(private http: HttpClient, private router: Router, private userService: UsersService) { }
+  constructor(private http: HttpClient, private router: Router, private userService: UserService) { }
 
   uri = 'http://localhost:5188';
 

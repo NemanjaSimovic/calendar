@@ -1,10 +1,12 @@
 export class Urgencycolor {
     id?: number;
     name: string = "";
-    rGBString: string = "";
+    BackgroundColor: string = "";
+    FontColor?: string
 
-    constructor(name: string, rGBString: string){
+    constructor(name: string, backgroundColor: string, fontColor?: string){
         this.name = name;
-        this.rGBString = rGBString;
+        this.BackgroundColor = backgroundColor;
+        this.FontColor = fontColor;
     }
 }

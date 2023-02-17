@@ -13,5 +13,22 @@
         public int ColorId { get; set; }
         public int EmojiId { get; set; }
         public bool Working { get; set; }
+
+        public CalendarHoliday(int id, string title, string description, DateTime startdate, DateTime endDate, bool applyToEveryone, int userId, int calendarId, int colorId, int emojiId, bool working)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+            Startdate = startdate;
+            EndDate = endDate;
+            ApplyToEveryone = applyToEveryone;
+
+
+            this.userId = userId;
+            CalendarId = calendarId;
+            ColorId = colorId;
+            EmojiId = emojiId;
+            Working = working;
+        }
     }
 }

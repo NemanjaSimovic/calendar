@@ -38,5 +38,10 @@ namespace Calendar_api.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task<User?> GetItemById(int id)
+        {
+            return await _context.User.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
     }
 }

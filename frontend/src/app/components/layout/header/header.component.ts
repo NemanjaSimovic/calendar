@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
-import { UsersService } from 'src/app/services/users.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   loggedIn: boolean = false;
 
-  constructor(private router: Router, private userService: UsersService) {
+  constructor(private router: Router, private userService: UserService) {
     this.userService.curUserSubject.subscribe((data) => {
       this.curUser = data;
       if(this.curUser != null)

@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
-import { CtasksService } from 'src/app/services/ctasks.service';
+import { CalendartaskService } from 'src/app/services/calenartask.service';
 import { MonthpickerDateAdapter } from '../global-calendar/monthpicker-date-adapter';
 
 @Component({
@@ -59,7 +59,7 @@ export class UserCalendarComponent implements OnInit {
     widget.close();
   }
 
-  constructor(private taskService: CtasksService) { }
+  constructor(private taskService: CalendartaskService) { }
 
   ngOnInit(): void {
     this.emptymatrix();

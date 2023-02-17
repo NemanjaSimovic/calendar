@@ -1,22 +1,20 @@
 ﻿using Calendar_api.Data;
+using Calendar_api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Calendar_api.Services
 {
     public class CalendarColorService
     {
         private readonly DataContext _context;
-        private static CalendarColorService _instance;
-        private CalendarColorService(DataContext context)
+        public CalendarColorService(DataContext context)
         {
             _context = context;
         }
-        public static CalendarColorService GetInstance(DataContext context)
+
+        public async Task<CalendarColor?> GetItemById(int id)
         {
-            if (_instance == null)
-            {
-                _instance = new CalendarColorService(context);
-            }
-            return _instance;
+            return await _context.CalendarColor.FirstOrDefaultAsync(x => x.Id == id);
         }
 
     }

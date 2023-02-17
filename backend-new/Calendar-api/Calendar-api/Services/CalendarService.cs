@@ -22,5 +22,10 @@ namespace Calendar_api.Services
         {
             return await _context.Calendar.ToListAsync();
         }
+
+        public async Task<Calendar?> GetItemById(int id)
+        {
+            return await _context.Calendar.FirstOrDefaultAsync(x => x.Id == id);
+        }
     }
 }
