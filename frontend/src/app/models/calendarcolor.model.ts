@@ -1,12 +1,12 @@
 export class Calendarcolor {
-    id?: number;
-    name: string = "";
-    backgroundColor: string = "";
-    fontColor?: string
+    Id?: number;
+    Name: string = "";
+    BackgroundColor: string = "";
+    FontColor?: string
 
     constructor(name: string, backgroundColor: string, fontColor?: string){
-        this.name = name;
-        this.backgroundColor = backgroundColor;
-        this.fontColor = fontColor;
+        this.Name = name;
+        this.BackgroundColor = backgroundColor;
+        this.FontColor = fontColor;
     }
 }

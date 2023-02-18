@@ -23,6 +23,16 @@ namespace Calendar_api.Services
             return await _context.Calendar.ToListAsync();
         }
 
+        public async Task<List<Calendar>> GetAllForTaskAsync()
+        {
+            return await _context.Calendar.Where(c => !c.IsForHolidays).ToListAsync();
+        }
+
+        public async Task<List<Calendar>> GetAllForHolidayAsync()
+        {
+            return await _context.Calendar.Where(c => c.IsForHolidays).ToListAsync();
+        }
+
         public async Task<Calendar?> GetItemById(int id)
         {
             return await _context.Calendar.FirstOrDefaultAsync(x => x.Id == id);

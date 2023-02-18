@@ -28,7 +28,7 @@ export class CalendartaskService {
   }
 
   getCaltasksByIdAndMonth(month: Date){
-    var id = this.userService.getCurUser()?.id;
+    var id = this.userService.getCurUser()?.Id;
     var mnt = month.getMonth() + 1;
     var mStr;
     if(mnt > 9){

@@ -10,9 +10,9 @@ export class CalendarcolorService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  uri = 'http://localhost:5188';
+  uri = 'http://localhost:5188/api/CalendarColor';
 
-  getAllCalendarColors(){
-    return this.http.get<Calendarcolor[]>(`${this.uri}/urgency/color/get/all`);
+  getAll(){
+    return this.http.get<Calendarcolor[]>(`${this.uri}`);
   }
 }

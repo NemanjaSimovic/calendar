@@ -26,14 +26,21 @@
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Pick a task color: </mat-label>
             <mat-select  [(value)]="pickedCalednarColorId">
-            <mat-option *ngFor="let c of calendarColors" value="{{c.id}}" >{{c.name}}</mat-option>
+            <mat-option *ngFor="let c of calendarColors" value="{{c.Id}}">{{c.Name}}</mat-option>
             </mat-select>
         </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Pick a task calendar: </mat-label>
+          <mat-select  [(value)]="pickedCalendarId">
+          <mat-option *ngFor="let c of Calendars" value="{{c.Id}}">{{c.Name}} - {{c.Description}}</mat-option>
+          </mat-select>
+      </mat-form-field>
 
         <mat-form-field  class="full-width" appearance="fill">
           <mat-label>Participants: </mat-label>
           <mat-select [(value)]="selectedUsersIds" multiple>
-            <mat-option *ngFor="let user of allUsers" [value]="user.id">{{user.name}}</mat-option>
+            <mat-option *ngFor="let user of allUsers" [value]="user.Id">{{user.Name}}</mat-option>
           </mat-select>
         </mat-form-field>
 

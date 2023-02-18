@@ -18,10 +18,24 @@ namespace Calendar_api.Controllers
             _calendarService = new CalendarService(dataContext);
         }
 
-        [HttpGet]
+        [HttpGet]        
         public async Task<ActionResult<List<Calendar>>> GetAllAsync()
         {
             return Ok(JsonSerializer.Serialize(await _calendarService.GetAllAsync()));
+        }
+
+        [HttpGet]
+        [Route("fortask")]
+        public async Task<ActionResult<List<Calendar>>> GetAllForTaskAsync()
+        {
+            return Ok(JsonSerializer.Serialize(await _calendarService.GetAllForTaskAsync()));
+        }
+
+        [HttpGet]
+        [Route("forholiday")]
+        public async Task<ActionResult<List<Calendar>>> GetAllForHolidayAsync()
+        {
+            return Ok(JsonSerializer.Serialize(await _calendarService.GetAllForHolidayAsync()));
         }
 
         [HttpPost]

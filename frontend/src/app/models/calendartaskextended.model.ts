@@ -2,30 +2,30 @@ import { Time } from "@angular/common";
 import { User } from "./user.model";
 
 export class Calendartaskextended {
-    id: number = 0;
-    title: string = "";
-    description: string = "";
+    Id: number = 0;
+    Title: string = "";
+    Description: string = "";
 
-    startTime: Date = new Date(2023, 1, 1);
-    endTime: Date = new Date(2023, 1, 1);
+    StartTime: Date = new Date(2023, 1, 1);
+    EndTime: Date = new Date(2023, 1, 1);
 
-    calendarId: number = 1;
-    calendarName: string = "work";
+    CalendarId: number = 1;
+    CalendarName: string = "work";
 
-    participantIds: number[] = [];
-    participantNames: string[] = [];
+    ParticipantIds: number[] = [];
+    ParticipantNames: string[] = [];
 
-    creatorId: number = 1;
-    creatorName: string = "";
+    CreatorId: number = 1;
+    CreatorName: string = "";
 
-    calendarColorId: number = 1;
-    calendarColorBackgroundColor: string = "";
-    calendarColorFontColor: string = "";
+    CalendarColorId: number = 1;
+    CalendarColorBackgroundColor: string = "";
+    CalendarColorFontColor: string = "";
 
-    emojiId: number = 1;
-    emojiEmoticon: string = "";
+    EmojiId: number = 1;
+    EmojiEmoticon: string = "";
 
-    knownForEveryone: boolean = true;
-    titleForEveryone?: string;
-    descriptionForEveryone?: string;
+    KnownForEveryone: boolean = true;
+    TitleForEveryone?: string;
+    DescriptionForEveryone?: string;
 }

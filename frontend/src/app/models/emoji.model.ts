@@ -1,10 +1,10 @@
 export class Emoji {
-    id?: number;
-    name: string = "";
-    emoticon: string = "";
+    Id?: number;
+    Name: string = "";
+    Emoticon: string = "";
 
     constructor(name: string, emoticon: string){
-        this.name = name;
-        this.emoticon = emoticon;
+        this.Name = name;
+        this.Emoticon = emoticon;
     }
 }

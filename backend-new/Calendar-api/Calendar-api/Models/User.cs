@@ -8,7 +8,6 @@
         public string Name { get; set; }
         public string Email { get; set; }
         public int RoleId  { get; set; }
-        public User() { }
 
         public User(int id, string username, string password, string name, string email, int roleId)
         {

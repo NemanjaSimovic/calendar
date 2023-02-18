@@ -8,6 +8,8 @@ import { Calendarcolor } from 'src/app/models/calendarcolor.model';
 import { CalendartaskService } from 'src/app/services/calenartask.service';
 import { CalendarcolorService } from 'src/app/services/calendarcolor.service';
 import { UserService } from 'src/app/services/user.service';
+import { Calendar } from 'src/app/models/calendar.model';
+import { CalendarService } from 'src/app/services/calendar.service';
 
 @Component({
   selector: 'app-create-task',
@@ -39,16 +41,28 @@ export class CreateTaskComponent implements OnInit {
 
   creatorId: number = 0;
 
-  constructor(private urgencyColorsService: CalendarcolorService, private usersService: UserService, private ctasksService: CalendartaskService) { }
+  Calendars: Calendar[] = [];
+  pickedCalendarId: number = 0;
+
+  constructor(private calendarColorsService: CalendarcolorService, private userService: UserService,
+     private calendartaskService: CalendartaskService, private calendarService: CalendarService) { }
 
   ngOnInit(): void {
     this.loadColors();
+    this.loadCalendars();
     this.getAllUsers();
   }
 
   loadColors(){
-    this.urgencyColorsService.getAllCalendarColors().subscribe(data => {
+    this.calendarColorsService.getAll().subscribe(data => {
       this.calendarColors = data;
+    });
+  }
+
+  loadCalendars(){
+    this.calendarService.getAllForTask().subscribe(data => {
+      this.Calendars = data;
+      console.log(data);
     });
   }
 
@@ -111,15 +125,15 @@ export class CreateTaskComponent implements OnInit {
   }
 
   getAllUsers(){
-    this.usersService.getAllUsers().subscribe(data => {
+    this.userService.getAll().subscribe(data => {
       this.allUsers = data;
     });
   }
 
   setCreatorId(){
-    var creator = this.usersService.getCurUser();
+    var creator = this.userService.getCurUser();
     if(!creator){
-      this.creatorId = this.usersService.getCurUser()?.id ?? -1;
+      this.creatorId = this.userService.getCurUser()?.Id ?? -1;
     }
   }
 
@@ -131,7 +145,7 @@ export class CreateTaskComponent implements OnInit {
     this.setUpStartEndTimes();
     this.setCreatorId();
 
-    this.ctasksService.addNewCaltask(this.title, this.description,
+    this.calendartaskService.addNewCaltask(this.title, this.description,
       this.startTime, this.endTime, this.creatorId,
       this.pickedCalednarColorId, this.selectedUsersIds)
       .subscribe( data => {

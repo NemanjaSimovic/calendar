@@ -18,13 +18,13 @@ export class CalTaskComponent implements OnInit {
   }
 
   startTimeString(): string{
-    let startTime = this.task.startTime;
+    let startTime = this.task.StartTime;
     if(startTime){
       let h = startTime.getHours();
     }
-    let hours = this.task.startTime.getHours();
+    let hours = this.task.StartTime.getHours();
     let hoursString: string = "";
-    let minutes = this.task.startTime.getMinutes();
+    let minutes = this.task.StartTime.getMinutes();
     let minutesString: string = "";
     let res: string = "";
     if(hours != null){
@@ -50,13 +50,13 @@ export class CalTaskComponent implements OnInit {
   }
 
   endTimeString(): string{
-    let endTime = this.task.endTime;
+    let endTime = this.task.EndTime;
     if(endTime){
       let h = endTime.getHours();
     }
-    let hours = this.task.endTime.getHours();
+    let hours = this.task.EndTime.getHours();
     let hoursString: string = "";
-    let minutes = this.task.endTime.getMinutes();
+    let minutes = this.task.EndTime.getMinutes();
     let minutesString: string = "";
     let res: string = "";
     if(hours != null){

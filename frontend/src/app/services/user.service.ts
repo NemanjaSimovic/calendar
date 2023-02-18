@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
@@ -55,7 +55,7 @@ export class UserService {
     .pipe(catchError(this.handleError));
   }
 
-  getAllUsers(){
+  getAll(){
     return this.http.get<User[]>(`${this.uri}`)
     .pipe(catchError(this.handleError));
   }
