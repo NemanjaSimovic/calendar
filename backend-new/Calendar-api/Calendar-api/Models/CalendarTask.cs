@@ -26,8 +26,8 @@
             CalendarColorId = calendarColorId;
             EmojiId = emojiId;
             KnownForEveryone = knownForEveryone;
-            CaptionForEveryone = captionForEveryone;
-            DescriptionForEveryone = descriptionForEveryone;
+            CaptionForEveryone = captionForEveryone ?? "";
+            DescriptionForEveryone = descriptionForEveryone ?? "";
         }
     }
 }

@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 import { User } from 'src/app/models/user.model';
-import { Urgencycolor } from 'src/app/models/calendarcolor.model';
+import { Calendarcolor } from 'src/app/models/calendarcolor.model';
 import { CalendartaskService } from 'src/app/services/calenartask.service';
 import { CalendarcolorService } from 'src/app/services/calendarcolor.service';
 import { UserService } from 'src/app/services/user.service';
@@ -16,9 +16,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CreateTaskComponent implements OnInit {
 
-  rGBString: string= "";
-  title: string= "";
-  description: string= "";
+  pickedCalednarColorId: number = 0;
+  title: string = "";
+  description: string = "";
   taskDate: Date = new Date();
 
   startHM: string = "";
@@ -32,16 +32,11 @@ export class CreateTaskComponent implements OnInit {
   startTime: Date = new Date();
   endTime: Date = new Date();
 
-  urgColors: Urgencycolor[] = [];
+  calendarColors: Calendarcolor[] = [];
 
   allUsers: User[] = [];
-  selectedUsers: User[] = [];
-
-  selectedUsersFullNames: string[] = [];
   selectedUsersIds: number[] = [];
 
-  creator: User | null = null;
-  creatorFullName: string = "";
   creatorId: number = 0;
 
   constructor(private urgencyColorsService: CalendarcolorService, private usersService: UserService, private ctasksService: CalendartaskService) { }
@@ -52,33 +47,32 @@ export class CreateTaskComponent implements OnInit {
   }
 
   loadColors(){
-    this.urgencyColorsService.getAllUrgencyColors().subscribe(data => {
-      this.urgColors = data;
+    this.urgencyColorsService.getAllCalendarColors().subscribe(data => {
+      this.calendarColors = data;
     });
   }
 
   allFieldsCheck(): boolean{
-    if(this.endHM == null || this.endHM == "" ||
-    this.startHM == null || this.startHM == ""){
+    if(!this.endHM || !this.startHM){
       console.log("You must enter starting and ending time!");
       return false;
     }
 
-    if(this.title == null || this.title == ""){
+    if(!this.title){
       console.log("You must enter task\'s title!");
       return false;
     }
 
-    if(this.description == null || this.description == ""){
+    if(!this.description){
       console.log("You must enter task\'s description!");
       return false;
     }
 
-    if(this.rGBString == null || this.rGBString == ""){
-      console.log("You must enter task\'s color/urgency!");
+    if(this.pickedCalednarColorId < 1){
+      console.log("You must enter task\'s color!");
       return false;
     }
-    if(this.selectedUsers.length <= 0){
+    if(this.selectedUsersIds.length <= 0){
       console.log("You must select at least 1 participant!");
       return false;
     }
@@ -87,7 +81,6 @@ export class CreateTaskComponent implements OnInit {
 
 //sets hours and minutes for both start and end time
   startLesserThanEndHM(): boolean{
-
     this.startHours = parseInt(this.startHM.slice(0,2), 10);
     this.startMinutes = parseInt(this.startHM.slice(3), 10);
     this.endHours = parseInt(this.endHM.slice(0,2), 10);
@@ -123,45 +116,27 @@ export class CreateTaskComponent implements OnInit {
     });
   }
 
-  setParticipantsAndCreator(){
-    for(let i=0; i<this.selectedUsers.length; i++){
-
-      this.selectedUsersFullNames[i] = this.selectedUsers[i].name;
-
-      // Since id can be undefined we nedd to check its value before assigning it, therfor new array value
-      // will be assigned to an empty string if the value of an id is undefined.
-      this.selectedUsersIds[i] = this.selectedUsers[i].id !== undefined ? this.selectedUsers[i].id! : 0;
-    }
-
-    this.creator = this.usersService.getCurUser();
-    if(this.creator != null){
-      this.creatorFullName = this.creator.name;
-      this.creatorId = this.creator.id? this.creator.id: 0;
+  setCreatorId(){
+    var creator = this.usersService.getCurUser();
+    if(!creator){
+      this.creatorId = this.usersService.getCurUser()?.id ?? -1;
     }
   }
 
   addTask(){
     if(!this.allFieldsCheck()){
-      console.log("Empty field exists!");
+      alert("Empty field exists!");
       return;
     }
     this.setUpStartEndTimes();
-    this.setParticipantsAndCreator();
-
-
+    this.setCreatorId();
 
     this.ctasksService.addNewCaltask(this.title, this.description,
-        this.rGBString, this.startTime, this.endTime, this.selectedUsersIds,
-        this.selectedUsersFullNames, this.creatorId, this.creatorFullName)
-    .subscribe( data => {
+      this.startTime, this.endTime, this.creatorId,
+      this.pickedCalednarColorId, this.selectedUsersIds)
+      .subscribe( data => {
             console.log(data);
     });
-
-
-
-
-
-    //ostaje da se testira sve zajedno!
   }
 
 }

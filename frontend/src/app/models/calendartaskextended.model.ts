@@ -19,7 +19,8 @@ export class Calendartaskextended {
     creatorName: string = "";
 
     calendarColorId: number = 1;
-    calendarColorRGBString: string = "";
+    calendarColorBackgroundColor: string = "";
+    calendarColorFontColor: string = "";
 
     emojiId: number = 1;
     emojiEmoticon: string = "";

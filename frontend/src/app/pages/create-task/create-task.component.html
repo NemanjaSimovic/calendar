@@ -24,16 +24,16 @@
         </div>
 
         <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Urgency: </mat-label>
-            <mat-select  [(value)]="rGBString">
-            <mat-option *ngFor="let c of urgColors" value="{{c.rGBString}}" >{{c.name}}</mat-option>
+            <mat-label>Pick a task color: </mat-label>
+            <mat-select  [(value)]="pickedCalednarColorId">
+            <mat-option *ngFor="let c of calendarColors" value="{{c.id}}" >{{c.name}}</mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field  class="full-width" appearance="fill">
           <mat-label>Participants: </mat-label>
-          <mat-select [(value)]="selectedUsers" multiple>
-            <mat-option *ngFor="let user of allUsers" [value]="user">{{user.name}}</mat-option>
+          <mat-select [(value)]="selectedUsersIds" multiple>
+            <mat-option *ngFor="let user of allUsers" [value]="user.id">{{user.name}}</mat-option>
           </mat-select>
         </mat-form-field>
 

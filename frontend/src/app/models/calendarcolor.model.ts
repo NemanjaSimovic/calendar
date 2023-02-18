@@ -1,12 +1,12 @@
-export class Urgencycolor {
+export class Calendarcolor {
     id?: number;
     name: string = "";
-    BackgroundColor: string = "";
-    FontColor?: string
+    backgroundColor: string = "";
+    fontColor?: string
 
     constructor(name: string, backgroundColor: string, fontColor?: string){
         this.name = name;
-        this.BackgroundColor = backgroundColor;
-        this.FontColor = fontColor;
+        this.backgroundColor = backgroundColor;
+        this.fontColor = fontColor;
     }
 }

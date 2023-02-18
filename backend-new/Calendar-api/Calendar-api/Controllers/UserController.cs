@@ -33,12 +33,12 @@ namespace Calendar_api.Controllers
         {
             if (body.Username == null || body.Password == null)
             {
-                return Unauthorized(JsonSerializer.Serialize("Username or password empty!"));
+                return Unauthorized("Username or password empty!");
             }
             bool usrExists = await _userService.UsernameExists(body.Username);
             if (usrExists == false)
             {
-                return Unauthorized(JsonSerializer.Serialize("No username in database found!"));
+                return Unauthorized("No username in database found!");
             }
             var user = await _userService.GetByUsernameAndPass(body.Username, body.Password);
             if (user == null)

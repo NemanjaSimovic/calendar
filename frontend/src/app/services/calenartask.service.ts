@@ -46,30 +46,28 @@ export class CalendartaskService {
     return this.http.get<Calendartaskextended[]>(`${this.uri}/task/get/byidandmonth`, {params: params});
   }
 
-  addNewCaltask(title: string, description: string, color: string,
-     startTime: Date, endTime: Date, participantIds: number[],
-  participantFullNames: string[], creatorId: number, creatorFullName: string){
-
-    //we did not use this but can be useful for other cases, so let it be there.
-    let startEpoch = startTime.getTime();
-    let endEpoch = endTime.getTime();
+  addNewCaltask(title: string, description: string,
+    startTime: Date, endTime: Date, creatorId: number,
+    calendarColorId: number, participantIds: number[] ){
 
 
     var body = {
       title: title,
       description: description,
-      color: color,
-      participantIds: participantIds,
-      participantFullNames: participantFullNames,
-      creatorId: creatorId,
-      creatorFullName: creatorFullName,
       startTime: startTime,
-      endTime: endTime
+      endTime: endTime,
+      //calendarId: calendarId
+      creatorId: creatorId,
+      calendarColorId: calendarColorId,
+      //emojiId: emojiId,
+      //knownForEveryone,
+      //captionForEveryone,
+      //descriptionForEveryone,
+      participantIds: participantIds,
     }
 
-    const params = new HttpParams().append('startEpoch', startEpoch).append('endEpoch', endEpoch);
 
-    return this.http.post(`${this.uri}/task/add`, body, {params: params});
+    return this.http.post(`${this.uri}/task/add`, body);
   }
 
 }
