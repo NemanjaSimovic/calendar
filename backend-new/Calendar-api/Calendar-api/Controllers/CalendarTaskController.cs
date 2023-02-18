@@ -30,6 +30,7 @@ namespace Calendar_api.Controllers
             _emojiService = new EmojiService(dataContext);
         }
         [HttpGet]
+        [Route("extended")]
         public async Task<ActionResult<List<CalendarTask>>> GetAllExtendedAsync()
         {
             List<CalendarTask> allCalendarTasks = await _calendarTaskService.GetAllAsync();
@@ -125,6 +126,7 @@ namespace Calendar_api.Controllers
                     task.EmojiId,
                     emoji.Emoticon,
                     task.KnownForEveryone,
+                    calendarColor.FontColor,
                     task.CaptionForEveryone,
                     task.DescriptionForEveryone
                 );

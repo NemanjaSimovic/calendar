@@ -17,5 +17,10 @@ namespace Calendar_api.Services
             return await _context.CalendarColor.FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public async Task<List<CalendarColor>> GetAllAsync()
+        {
+            return await _context.CalendarColor.ToListAsync();
+        }
+
     }
 }

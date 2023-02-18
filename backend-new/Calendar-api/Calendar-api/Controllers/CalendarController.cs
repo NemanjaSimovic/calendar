@@ -3,6 +3,7 @@ using Calendar_api.Models;
 using Calendar_api.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Calendar_api.Controllers
 {
@@ -20,14 +21,14 @@ namespace Calendar_api.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Calendar>>> GetAllAsync()
         {
-            return Ok(await _calendarService.GetAllAsync());
+            return Ok(JsonSerializer.Serialize(await _calendarService.GetAllAsync()));
         }
 
         [HttpPost]
         public async Task<ActionResult<List<Calendar>>> AddItem(Calendar calendar)
         {
             await _calendarService.AddItem(calendar);
-            return Ok(await _calendarService.GetAllAsync());
+            return Ok(JsonSerializer.Serialize(await _calendarService.GetAllAsync()));
         }
     }
 }
