@@ -22,7 +22,7 @@ namespace Calendar_api.Controllers
         public async Task<ActionResult<List<User>>> GetAllAsync()
         {
             List<CalendarColor> allCalendarColors = await _calendarColorService.GetAllAsync();
-            return Ok(JsonSerializer.Serialize(allCalendarColors));
+            return Ok(JsonSerializer.Serialize(allCalendarColors, Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
 
 

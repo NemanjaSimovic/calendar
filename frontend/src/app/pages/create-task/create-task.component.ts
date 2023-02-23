@@ -10,6 +10,8 @@ import { CalendarcolorService } from 'src/app/services/calendarcolor.service';
 import { UserService } from 'src/app/services/user.service';
 import { Calendar } from 'src/app/models/calendar.model';
 import { CalendarService } from 'src/app/services/calendar.service';
+import { Emoji } from 'src/app/models/emoji.model';
+import { EmojiService } from 'src/app/services/emoji.service';
 
 @Component({
   selector: 'app-create-task',
@@ -41,15 +43,22 @@ export class CreateTaskComponent implements OnInit {
 
   creatorId: number = 0;
 
-  Calendars: Calendar[] = [];
+  calendars: Calendar[] = [];
   pickedCalendarId: number = 0;
 
+  emojis: Emoji[] = [];
+  pickedEmojiId: number = 0;
+
+
+
   constructor(private calendarColorsService: CalendarcolorService, private userService: UserService,
-     private calendartaskService: CalendartaskService, private calendarService: CalendarService) { }
+     private calendartaskService: CalendartaskService, private calendarService: CalendarService,
+     private emojiService: EmojiService) { }
 
   ngOnInit(): void {
     this.loadColors();
     this.loadCalendars();
+    this.loadEmojis();
     this.getAllUsers();
   }
 
@@ -61,8 +70,13 @@ export class CreateTaskComponent implements OnInit {
 
   loadCalendars(){
     this.calendarService.getAllForTask().subscribe(data => {
-      this.Calendars = data;
-      console.log(data);
+      this.calendars = data;
+    });
+  }
+
+  loadEmojis(){
+    this.emojiService.getAll().subscribe(data => {
+      this.emojis = data;
     });
   }
 
@@ -132,8 +146,9 @@ export class CreateTaskComponent implements OnInit {
 
   setCreatorId(){
     var creator = this.userService.getCurUser();
-    if(!creator){
-      this.creatorId = this.userService.getCurUser()?.Id ?? -1;
+    if(creator){
+      //pronadji na netu kada stavljas malo kada veliko pocetno slovo atributa u klasi.
+      this.creatorId = creator.id ?? -1;
     }
   }
 
@@ -145,9 +160,10 @@ export class CreateTaskComponent implements OnInit {
     this.setUpStartEndTimes();
     this.setCreatorId();
 
-    this.calendartaskService.addNewCaltask(this.title, this.description,
-      this.startTime, this.endTime, this.creatorId,
-      this.pickedCalednarColorId, this.selectedUsersIds)
+    this.calendartaskService.addNewCalendarTask(this.title, this.description,
+      this.startTime, this.endTime, this.pickedCalendarId, this.creatorId,
+      this.pickedCalednarColorId, this.pickedEmojiId, this.selectedUsersIds,
+      true, undefined, undefined)
       .subscribe( data => {
             console.log(data);
     });

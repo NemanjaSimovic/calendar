@@ -34,7 +34,7 @@ namespace Calendar_api.Controllers
         public async Task<ActionResult<List<CalendarTask>>> GetAllExtendedAsync()
         {
             List<CalendarTask> allCalendarTasks = await _calendarTaskService.GetAllAsync();
-            List<CalendarTaskExtended> allCalendarTasksExtended = await convertCalendarTaskToExtendedAsync(allCalendarTasks);
+            List<CalendarTaskExtended> allCalendarTasksExtended = await ConvertCalendarTaskToExtendedAsync(allCalendarTasks);
             if(allCalendarTasks.Count >= 1 && allCalendarTasksExtended.Count < 1)
             {
                 return NotFound(JsonSerializer.Serialize("Some of the ExtendedCalendarTask properties are missing in all the selected tasks!"));
@@ -45,12 +45,12 @@ namespace Calendar_api.Controllers
         public async Task<ActionResult<List<CalendarTask>>> GetAllAsync()
         {
             List<CalendarTask> allCalendarTasks = await _calendarTaskService.GetAllAsync();
-            return Ok(JsonSerializer.Serialize(allCalendarTasks));
+            return Ok(JsonSerializer.Serialize(allCalendarTasks, Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
         [HttpPost]
-        public async Task<ActionResult<bool>> AddItem(CalendarTaskExtended calendarTaskExtended)
+        public async Task<ActionResult<bool>> AddItem([FromBody] CalendarTaskExtended calendarTaskExtended)
         {
-            if (!checkAllPaticipantsAvailable())
+            if (!CheckAllPaticipantsAvailable())
             {
                 return BadRequest(JsonSerializer.Serialize("Some of the users is not available at that time!"));
             }
@@ -74,7 +74,7 @@ namespace Calendar_api.Controllers
             return Ok(JsonSerializer.Serialize("Calendar task successfully added!"));
         }
 
-        private async Task<List<CalendarTaskExtended>> convertCalendarTaskToExtendedAsync(List<CalendarTask> tasks)
+        private async Task<List<CalendarTaskExtended>> ConvertCalendarTaskToExtendedAsync(List<CalendarTask> tasks)
         {
             List<CalendarTaskExtended>? extendedTasks = new List<CalendarTaskExtended>();
             foreach (var task in tasks)
@@ -107,7 +107,7 @@ namespace Calendar_api.Controllers
                     participantIds.Add(participant.Id);
                     participantNames.Add(participant.Name);
                 }
-
+                    
                 CalendarTaskExtended extednedTask =
                 new CalendarTaskExtended(
                     task.Id,
@@ -135,7 +135,7 @@ namespace Calendar_api.Controllers
             return extendedTasks;
         }
 
-        private bool checkAllPaticipantsAvailable()
+        private bool CheckAllPaticipantsAvailable()
         {
             //todo
             return true;

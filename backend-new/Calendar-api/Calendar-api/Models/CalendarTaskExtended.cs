@@ -9,20 +9,20 @@
         public DateTime EndTime { get; set; }
         
         public int CalendarId { get; set; }
-        public string CalendarName { get; set; }
+        public string? CalendarName { get; set; }
 
         public List<int> ParticipantIds { get; set; }
-        public List<string> ParticipantNames { get; set; }
+        public List<string>? ParticipantNames { get; set; }
 
         public int CreatorId { get; set; }
-        public string CreatorName { get; set; }
+        public string? CreatorName { get; set; }
 
         public int CalendarColorId { get; set; }
-        public string CalendarColorBackgroundColor { get; set; }
+        public string? CalendarColorBackgroundColor { get; set; }
         public string? CalendarColorFontColor { get; set; }
 
         public int EmojiId { get; set; } = 0;
-        public string emojiEmoticon { get; set; }
+        public string? EmojiEmoticon { get; set; }
 
         public bool KnownForEveryone { get; set; }
         public string? CaptionForEveryone { get; set; }
@@ -51,7 +51,7 @@
             CalendarColorBackgroundColor = calendarColorBackgroundColor;
             CalendarColorFontColor = calendarColorFontColor;
             EmojiId = emojiId;
-            this.emojiEmoticon = emojiEmoticon;
+            this.EmojiEmoticon = emojiEmoticon;
             KnownForEveryone = knownForEveryone;
             CaptionForEveryone = captionForEveryone;
             DescriptionForEveryone = descriptionForEveryone;

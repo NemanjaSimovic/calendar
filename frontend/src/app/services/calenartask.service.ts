@@ -11,7 +11,7 @@ export class CalendartaskService {
 
   constructor(private http: HttpClient, private router: Router, private userService: UserService) { }
 
-  uri = 'http://localhost:5188';
+  uri = 'http://localhost:5188/api/CalendarTask';
 
   getCaltasksByMonth(month: Date){
     var mnt = month.getMonth() + 1;
@@ -28,7 +28,7 @@ export class CalendartaskService {
   }
 
   getCaltasksByIdAndMonth(month: Date){
-    var id = this.userService.getCurUser()?.Id;
+    var id = this.userService.getCurUser()?.id;
     var mnt = month.getMonth() + 1;
     var mStr;
     if(mnt > 9){
@@ -46,9 +46,12 @@ export class CalendartaskService {
     return this.http.get<Calendartaskextended[]>(`${this.uri}/task/get/byidandmonth`, {params: params});
   }
 
-  addNewCaltask(title: string, description: string,
-    startTime: Date, endTime: Date, creatorId: number,
-    calendarColorId: number, participantIds: number[] ){
+  addNewCalendarTask(title: string, description: string,
+    startTime: Date, endTime: Date, calendarId: number,
+    creatorId: number, calendarColorId: number, emojiId: number,
+    participantIds: number[], knownForEveryone: boolean,
+    captionForEveryone?: string, descriptionForEveryone?: string
+    ){
 
 
     var body = {
@@ -56,18 +59,18 @@ export class CalendartaskService {
       description: description,
       startTime: startTime,
       endTime: endTime,
-      //calendarId: calendarId
+      calendarId: calendarId,
       creatorId: creatorId,
       calendarColorId: calendarColorId,
-      //emojiId: emojiId,
-      //knownForEveryone,
-      //captionForEveryone,
-      //descriptionForEveryone,
+      emojiId: emojiId,
+      knownForEveryone: knownForEveryone,
+      captionForEveryone: captionForEveryone ?? "",
+      descriptionForEveryone: descriptionForEveryone ?? "",
       participantIds: participantIds,
     }
 
 
-    return this.http.post(`${this.uri}/task/add`, body);
+    return this.http.post(`${this.uri}`, body);
   }
 
 }

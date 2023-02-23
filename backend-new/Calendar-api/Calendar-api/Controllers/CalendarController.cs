@@ -21,21 +21,21 @@ namespace Calendar_api.Controllers
         [HttpGet]        
         public async Task<ActionResult<List<Calendar>>> GetAllAsync()
         {
-            return Ok(JsonSerializer.Serialize(await _calendarService.GetAllAsync()));
+            return Ok(JsonSerializer.Serialize(await _calendarService.GetAllAsync(), Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
 
         [HttpGet]
         [Route("fortask")]
         public async Task<ActionResult<List<Calendar>>> GetAllForTaskAsync()
         {
-            return Ok(JsonSerializer.Serialize(await _calendarService.GetAllForTaskAsync()));
+            return Ok(JsonSerializer.Serialize(await _calendarService.GetAllForTaskAsync(), Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
 
         [HttpGet]
         [Route("forholiday")]
         public async Task<ActionResult<List<Calendar>>> GetAllForHolidayAsync()
         {
-            return Ok(JsonSerializer.Serialize(await _calendarService.GetAllForHolidayAsync()));
+            return Ok(JsonSerializer.Serialize(await _calendarService.GetAllForHolidayAsync(), Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
 
         [HttpPost]

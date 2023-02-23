@@ -1,11 +1,11 @@
 export class Calendar {
-    Id?: number;
-    Name: string;
-    Description: string;
-    IsForHolidays: boolean = false;
+    id?: number;
+    name: string;
+    description: string;
+    isForHolidays: boolean = false;
     constructor(name?: string, description?: string, isForHolidays?: boolean){
-        this.Name = name? name: "defaultName";
-        this.Description = description? description: "defaultDescription";
-        this.IsForHolidays = isForHolidays? isForHolidays: false;
+        this.name = name? name: "defaultName";
+        this.description = description? description: "defaultDescription";
+        this.isForHolidays = isForHolidays? isForHolidays: false;
     }
 }

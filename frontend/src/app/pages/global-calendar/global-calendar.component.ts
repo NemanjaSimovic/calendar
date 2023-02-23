@@ -77,7 +77,7 @@ export class GlobalCalendarComponent implements OnInit {
 
   public assignTasksByDay(){
     this.tasks.forEach(element => {
-      var taskDate = new Date(element.StartTime).getDate();
+      var taskDate = new Date(element.startTime).getDate();
       this.daysOfTheMonth[taskDate].push(element);
     });
   }
@@ -138,11 +138,11 @@ export class GlobalCalendarComponent implements OnInit {
     let startFixed;
     let endFixed;
     this.unfixedTasks.forEach(task => {
-      startFixed = new Date(task.StartTime);
-      task.StartTime = startFixed;
+      startFixed = new Date(task.startTime);
+      task.startTime = startFixed;
 
-      endFixed= new Date(task.EndTime);
-      task.EndTime = endFixed;
+      endFixed= new Date(task.endTime);
+      task.endTime = endFixed;
     });
   }
 

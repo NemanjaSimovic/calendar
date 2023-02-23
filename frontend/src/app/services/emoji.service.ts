@@ -11,7 +11,7 @@ export class EmojiService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  uri = 'http://localhost:5188/api/Calendar';
+  uri = 'http://localhost:5188/api/Emoji';
 
   getAll(){
     return this.http.get<Emoji[]>(`${this.uri}`)

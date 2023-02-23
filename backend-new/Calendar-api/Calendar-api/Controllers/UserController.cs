@@ -24,7 +24,7 @@ namespace Calendar_api.Controllers
         public async Task<ActionResult<List<User>>> GetAllAsync()
         {
             List<User> allUsers = await _userService.GetAllAsync();
-            return Ok(JsonSerializer.Serialize(allUsers));
+            return Ok(JsonSerializer.Serialize(allUsers, Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
 
         [HttpPost]
@@ -45,7 +45,7 @@ namespace Calendar_api.Controllers
             {
                 return Unauthorized(JsonSerializer.Serialize("Wrong password!"));
             }
-            return Ok(JsonSerializer.Serialize(user));
+            return Ok(JsonSerializer.Serialize(user, Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
 
         [HttpPost]

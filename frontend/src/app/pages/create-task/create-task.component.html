@@ -23,24 +23,33 @@
             <ngx-timepicker-field [format]="24" [defaultTime]="'23:11'" [(ngModel)]="endHM" name="endHM"></ngx-timepicker-field>
         </div>
 
+
         <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Pick a task color: </mat-label>
-            <mat-select  [(value)]="pickedCalednarColorId">
-            <mat-option *ngFor="let c of calendarColors" value="{{c.Id}}">{{c.Name}}</mat-option>
+            <mat-label>Pick a task calendar: </mat-label>
+            <mat-select  [(value)]="pickedCalendarId">
+            <mat-option *ngFor="let c of calendars" value="{{c.id}}">{{c.name}} - {{c.description}}</mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field class="full-width" appearance="fill">
-          <mat-label>Pick a task calendar: </mat-label>
-          <mat-select  [(value)]="pickedCalendarId">
-          <mat-option *ngFor="let c of Calendars" value="{{c.Id}}">{{c.Name}} - {{c.Description}}</mat-option>
+          <mat-label>Pick a task color: </mat-label>
+          <mat-select  [(value)]="pickedCalednarColorId">
+          <mat-option *ngFor="let c of calendarColors" value="{{c.id}}" [style.background-color]="c.backgroundColor" [style.color]="c.fontColor ? c.fontColor : 'rgb(0, 0, 0)'" >{{c.name}}</mat-option>
           </mat-select>
-      </mat-form-field>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Pick a task emoji: </mat-label>
+          <mat-select  [(value)]="pickedEmojiId">
+          <mat-option *ngFor="let e of emojis" value="{{e.id}}">{{e.emoticon}} - {{e.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
 
         <mat-form-field  class="full-width" appearance="fill">
           <mat-label>Participants: </mat-label>
           <mat-select [(value)]="selectedUsersIds" multiple>
-            <mat-option *ngFor="let user of allUsers" [value]="user.Id">{{user.Name}}</mat-option>
+            <mat-option *ngFor="let user of allUsers" [value]="user.id">{{user.name}}</mat-option>
           </mat-select>
         </mat-form-field>
 

@@ -1,20 +1,20 @@
 export class Calendartask {
-  Id?: number;
-  Title: string = "";
-  Description: string = "";
+  id?: number;
+  title: string = "";
+  description: string = "";
 
-  StartTime: Date = new Date(2023, 1, 1);
-  EndTime: Date = new Date(2023, 1, 1);
+  startTime: Date = new Date(2023, 1, 1);
+  endTime: Date = new Date(2023, 1, 1);
 
-  CalendarId: number = 1;
+  calendarId: number = 1;
 
-  CreatorId: number = 1;
+  creatorId: number = 1;
 
-  CalendarColorId: number = 1;
+  calendarColorId: number = 1;
 
-  EmojiId: number = 1;
+  emojiId: number = 1;
 
-  KnownForEveryone: boolean = true;
-  TitleForEveryone?: string;
-  DescriptionForEveryone?: string;
+  knownForEveryone: boolean = true;
+  titleForEveryone?: string;
+  descriptionForEveryone?: string;
 }

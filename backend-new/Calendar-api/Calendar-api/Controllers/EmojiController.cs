@@ -21,13 +21,13 @@ namespace Calendar_api.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Emoji>>> GetAllAsync()
         {
-            return Ok(JsonSerializer.Serialize(await _emojiService.GetAllAsync()));
+            return Ok(JsonSerializer.Serialize(await _emojiService.GetAllAsync(), Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
         [HttpPost]
         public async Task<ActionResult<List<Emoji>>> AddItem(Emoji emoji)
         {
             await _emojiService.AddItem(emoji);
-            return Ok(JsonSerializer.Serialize(await _emojiService.GetAllAsync()));
+            return Ok(JsonSerializer.Serialize(await _emojiService.GetAllAsync(), Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
     }
 }
