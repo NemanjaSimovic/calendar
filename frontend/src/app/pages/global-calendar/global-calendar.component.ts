@@ -2,8 +2,10 @@ import { Platform } from '@angular/cdk/platform';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { Calendar } from 'src/app/models/calendar.model';
 import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 import { CalendartaskService } from 'src/app/services/calenartask.service';
+import { CalendarService } from 'src/app/services/calendar.service';
 import { MonthpickerDateAdapter } from './monthpicker-date-adapter';
 
 
@@ -22,6 +24,7 @@ import { MonthpickerDateAdapter } from './monthpicker-date-adapter';
 export class GlobalCalendarComponent implements OnInit {
 
 
+  constructor(private taskService: CalendartaskService, private calendarService: CalendarService) { }
   //dummy for looping ngfor
   numSequence(n: number): Array<number> {
     return Array(n);
@@ -35,19 +38,34 @@ export class GlobalCalendarComponent implements OnInit {
   public weekDays: string[] = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
 
   public maxDaysOfTheMonth = 30;
-  public dt: Date = new Date(2022, 8, 9);
+  public dt: Date = new Date();
   public dayOfTheWeek: number = 1;
   public unfixedTasks: Calendartaskextended[] = [];
   public tasks: Calendartaskextended[] = [];
+  public filteredTasksByCalendarIds: Calendartaskextended[] = [];
   public daysOfTheMonth: Calendartaskextended[][] = new Array(31);
 
   public selectedDay: number = 0;
 
   @Input()
-  public monthAndYear: Date = new Date(2022, 8);
+  public monthAndYear: Date = new Date();
 
   @Output()
   public monthAndYearChange = new EventEmitter<Date | null>();
+
+  public allCalendars: Calendar[] = [];
+  public selectedCalendarIds: number[] = [];
+
+  public getAllCalendars(){
+    this.calendarService.getAllForTask().subscribe(data => {
+      this.allCalendars = data;
+      if(this.allCalendars){
+        this.allCalendars.forEach(element => {
+          this.selectedCalendarIds.push(element.id!);
+        });
+      }
+    });
+  }
 
   public emitDateChange(event: MatDatepickerInputEvent<Date | null, unknown>): void {
     this.monthAndYearChange.emit(event.value);
@@ -61,12 +79,17 @@ export class GlobalCalendarComponent implements OnInit {
     widget.close();
   }
 
-  constructor(private taskService: CalendartaskService) { }
+  public setPickedMonthToTodays(){
+    this.monthAndYear = new Date();
+    this.dt = new Date(this.monthAndYear.getFullYear(), this.monthAndYear.getMonth(), 1);
+    this.chooseMonth();
+  }
+
 
   ngOnInit(): void {
+    this.getAllCalendars();
     this.emptymatrix();
-    this.dt = new Date(2022, 8, 9);
-    this.chooseMonth();
+    this.setPickedMonthToTodays();
   }
 
   public emptymatrix(){
@@ -76,7 +99,7 @@ export class GlobalCalendarComponent implements OnInit {
   }
 
   public assignTasksByDay(){
-    this.tasks.forEach(element => {
+    this.filteredTasksByCalendarIds.forEach(element => {
       var taskDate = new Date(element.startTime).getDate();
       this.daysOfTheMonth[taskDate].push(element);
     });
@@ -95,15 +118,6 @@ export class GlobalCalendarComponent implements OnInit {
     var month = this.dt.getMonth() + 1;
 
     switch(month) {
-      case 1:
-      case 3:
-      case 5:
-      case 7:
-      case 8:
-      case 10:
-      case 12:
-        this.maxDaysOfTheMonth = 31
-        break;
       case 2:
         this.maxDaysOfTheMonth = 28;
         break;
@@ -118,7 +132,7 @@ export class GlobalCalendarComponent implements OnInit {
     }
   }
 
-  public setWeekDayOfFirstOdTheMonth(){
+  public setWeekDayOfFirstOfTheMonth(){
     this.dt.setDate(1);
     this.dayOfTheWeek = this.dt.getDay();
     if(this.dayOfTheWeek <= 0){
@@ -134,29 +148,26 @@ export class GlobalCalendarComponent implements OnInit {
     this.selectedDay = currentlySelectedDay;
   }
 
-  public changeStringsToDates(){
-    let startFixed;
-    let endFixed;
-    this.unfixedTasks.forEach(task => {
-      startFixed = new Date(task.startTime);
-      task.startTime = startFixed;
 
-      endFixed= new Date(task.endTime);
-      task.endTime = endFixed;
-    });
+  public filterTasksByCalendarId(){
+    this.filteredTasksByCalendarIds = this.tasks.filter(t => this.selectedCalendarIds.includes(t.calendarId));
   }
 
+  public onCalendarsChange(){
+    this.filterTasksByCalendarId();
+    this.emptymatrix();
+    this.assignTasksByDay();
+  }
 
   public chooseMonth(){
     this.taskService.getCaltasksByMonth(this.dt).subscribe((data) => {
       // resets selected day
       this.selectedDay = 0;
-      this.setWeekDayOfFirstOdTheMonth();
+      this.setWeekDayOfFirstOfTheMonth();
       this.setNumberOfDaysForSelectedMonth();
 
-      this.unfixedTasks = data;
-      this.changeStringsToDates();
-      this.tasks = this.unfixedTasks;
+      this.tasks = this.taskService.GMTtoLocalTimeForExtendedTaskArray(data);
+      this.filterTasksByCalendarId();
 
       this.emptymatrix();
       this.assignTasksByDay();

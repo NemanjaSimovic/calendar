@@ -16,10 +16,6 @@ namespace Calendar_api.Services
         {
             return await _context.UserCalendarTask.Where(u => u.CalendarTaskId == calendarTaskId).ToListAsync();
         }
-        public async Task<List<UserCalendarTask>> GetAllByUserIdAsync(int calendarTaskId)
-        {
-            return await _context.UserCalendarTask.Where(u => u.CalendarTaskId == calendarTaskId).ToListAsync();
-        }
 
         public async Task AddAllParticipants(int calendarTaskId, List<int> participantIds)
         {

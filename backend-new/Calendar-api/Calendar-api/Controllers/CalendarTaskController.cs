@@ -1,10 +1,8 @@
 ﻿using Calendar_api.Data;
 using Calendar_api.Models;
 using Calendar_api.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace Calendar_api.Controllers
 {
@@ -35,11 +33,36 @@ namespace Calendar_api.Controllers
         {
             List<CalendarTask> allCalendarTasks = await _calendarTaskService.GetAllAsync();
             List<CalendarTaskExtended> allCalendarTasksExtended = await ConvertCalendarTaskToExtendedAsync(allCalendarTasks);
-            if(allCalendarTasks.Count >= 1 && allCalendarTasksExtended.Count < 1)
+            if (allCalendarTasks.Count >= 1 && allCalendarTasksExtended.Count < 1)
             {
                 return NotFound(JsonSerializer.Serialize("Some of the ExtendedCalendarTask properties are missing in all the selected tasks!"));
             }
-            return Ok(JsonSerializer.Serialize(allCalendarTasks));
+            return Ok(JsonSerializer.Serialize(allCalendarTasksExtended, Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
+        }
+
+        [HttpGet]
+        [Route("extended/bymonth")]
+        public async Task<ActionResult<List<CalendarTask>>> GetAllExtendedByMonthAsync(DateTime minStartTime)
+        {
+            List<CalendarTask> filteredCalendarTasks = await _calendarTaskService.GetAllByMonthAsync(minStartTime);
+            List<CalendarTaskExtended> filteredCalendarTasksExtended = await ConvertCalendarTaskToExtendedAsync(filteredCalendarTasks);
+            if (filteredCalendarTasks.Count >= 1 && filteredCalendarTasksExtended.Count < 1)
+            {
+                return NotFound(JsonSerializer.Serialize("Some of the ExtendedCalendarTask properties are missing in all the selected tasks!"));
+            }
+            return Ok(JsonSerializer.Serialize(filteredCalendarTasksExtended, Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
+        }
+        [HttpGet]
+        [Route("extended/foruser/bymonth")]
+        public async Task<ActionResult<List<CalendarTask>>> GetForUserExtendedByMonthAsync(DateTime minStartTime, int userId)
+        {
+            List<CalendarTask> filteredCalendarTasks = await _calendarTaskService.GetAllForUserByMonthAsync(minStartTime, userId);
+            List<CalendarTaskExtended> filteredCalendarTasksExtended = await ConvertCalendarTaskToExtendedAsync(filteredCalendarTasks);
+            if (filteredCalendarTasks.Count >= 1 && filteredCalendarTasksExtended.Count < 1)
+            {
+                return NotFound(JsonSerializer.Serialize("Some of the ExtendedCalendarTask properties are missing in all the selected tasks!"));
+            }
+            return Ok(JsonSerializer.Serialize(filteredCalendarTasksExtended, Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
         [HttpGet]
         public async Task<ActionResult<List<CalendarTask>>> GetAllAsync()
