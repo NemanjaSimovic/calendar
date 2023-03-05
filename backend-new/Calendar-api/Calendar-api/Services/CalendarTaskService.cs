@@ -25,7 +25,7 @@ namespace Calendar_api.Services
         public async Task<List<CalendarTask>> GetAllForUserByMonthAsync(DateTime minStartTime, int userId)
         {
             DateTime maxStartTime = minStartTime.AddMonths(1);
-            List<UserCalendarTask> CalendarTasksByUser = await _context.UserCalendarTask.Where(u => u.userId == userId).ToListAsync();
+            List<UserCalendarTask> CalendarTasksByUser = await _context.UserCalendarTask.Where(u => u.UserId == userId).ToListAsync();
             List<int> taskIdsByUser = CalendarTasksByUser.Select(u => u.CalendarTaskId).ToList();
             return await _context.CalendarTask.Where(t => taskIdsByUser.Contains(t.Id) && t.StartTime >= minStartTime && t.StartTime <= maxStartTime).OrderBy(t => t.StartTime).ToListAsync();
         }

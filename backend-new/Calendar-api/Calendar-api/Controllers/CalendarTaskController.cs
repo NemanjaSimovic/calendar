@@ -122,7 +122,7 @@ namespace Calendar_api.Controllers
                 }
                 foreach (var userCalendarTask in userCalendarTasks)
                 {
-                    participant = await _userService.GetItemById(userCalendarTask.userId);
+                    participant = await _userService.GetItemById(userCalendarTask.UserId);
                     if (participant == null)
                     {
                         continue;

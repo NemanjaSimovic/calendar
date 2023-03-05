@@ -14,6 +14,7 @@ namespace Calendar_api.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserService _userService;
+        private readonly UserCalendarTaskService _userCalendarTaskService;
 
         public UserController(DataContext dataContext)
         {
@@ -63,6 +64,20 @@ namespace Calendar_api.Controllers
             }
             await _userService.AddItem(body);
             return Ok(JsonSerializer.Serialize("User successfully registered!"));
+        }
+
+        public async Task<List<UserAvailabillityDto>> GetUsersAvailabilityForTimeRange(DateTime startTime, DateTime endTime)
+        {
+            List<User> allUsers = await _userService.GetAllAsync();
+            List<UserAvailabillityDto> usersAvailability = new List<UserAvailabillityDto>();
+            foreach(User user in allUsers)
+            {
+                UserAvailabillityDto userAvailability = new UserAvailabillityDto(user.Id, user.Name, false);
+                List<CalendarTask> allCalendarTasksForUser = await _userCalendarTaskService.GetCalendarTasksbyUserId(user.Id);
+                usersAvailability.Add(userAvailability);
+            }
+
+            return usersAvailability;
         }
     }
 }
