@@ -14,11 +14,14 @@ namespace Calendar_api.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserService _userService;
+        private readonly CalendarTaskService _calendarTaskService;
         private readonly UserCalendarTaskService _userCalendarTaskService;
 
         public UserController(DataContext dataContext)
         {
             _userService = new UserService(dataContext);
+            _calendarTaskService = new CalendarTaskService(dataContext);
+            _userCalendarTaskService = new UserCalendarTaskService(dataContext);
         }
 
         [HttpGet]
@@ -66,15 +69,34 @@ namespace Calendar_api.Controllers
             return Ok(JsonSerializer.Serialize("User successfully registered!"));
         }
 
+        [HttpGet]
+        [Route("availability")]
         public async Task<List<UserAvailabillityDto>> GetUsersAvailabilityForTimeRange(DateTime startTime, DateTime endTime)
         {
-            List<User> allUsers = await _userService.GetAllAsync();
+            List<int> conflictedTaskIds = await _calendarTaskService.GetCalendarTaskIdsConflictedWithEnteredTime(startTime, endTime);
+            List<int> unavailableUserIds = new List<int>();
+            List<int> unavailableUserIdsForCalendarTask;
+
+            foreach(int taskId in conflictedTaskIds)
+            {
+                unavailableUserIdsForCalendarTask = await _userCalendarTaskService.GetUserIdsByCalendarTaskId(taskId);
+                unavailableUserIds.AddRange(unavailableUserIdsForCalendarTask);
+            }
+
+            unavailableUserIds = unavailableUserIds.Distinct().ToList();
             List<UserAvailabillityDto> usersAvailability = new List<UserAvailabillityDto>();
+            List<User> allUsers = await _userService.GetAllAsync();
+
             foreach(User user in allUsers)
             {
-                UserAvailabillityDto userAvailability = new UserAvailabillityDto(user.Id, user.Name, false);
-                List<CalendarTask> allCalendarTasksForUser = await _userCalendarTaskService.GetCalendarTasksbyUserId(user.Id);
-                usersAvailability.Add(userAvailability);
+                bool availability = true;
+                if (unavailableUserIds.Contains(user.Id))
+                {
+                    availability = false;
+                }
+
+                UserAvailabillityDto userDto = new UserAvailabillityDto(user.Id, user.Name, availability);
+                usersAvailability.Add(userDto);
             }
 
             return usersAvailability;
