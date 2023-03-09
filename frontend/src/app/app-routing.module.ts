@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "about", component: AboutComponent},
   {path: "calendar/global", component: GlobalCalendarComponent},
-  {path: "calendar/user", component: UserCalendarComponent},
+  {path: "calendar/user", component: GlobalCalendarComponent},
   {path: "auth/register", component: RegisterComponent},
   {path: "auth/login", component: LoginComponent},
   {path: "create/task", component: CreateTaskComponent}

@@ -45,21 +45,13 @@ export class CalendartaskService {
 
   getCaltasksByIdAndMonth(month: Date){
     var id = this.userService.getCurUser()?.id;
-    var mnt = month.getMonth() + 1;
-    var mStr;
-    if(mnt > 9){
-      mStr = mnt.toString();
-    }else{
-      mStr = "0" + mnt.toString();
-    }
-    var monthStr =  month.getFullYear().toString() + "/" + mStr + "/01";
     var params;
     if(id != null){
-      params = new HttpParams().append('month', monthStr).append('id', id);
+      params = new HttpParams().append('minStartTime', month.toJSON()).append('userId', id);
     }else{
-      params = new HttpParams().append('month', monthStr).append('id', " ");
+      params = new HttpParams().append('minStartTime', month.toJSON()).append('userId', 0);
     }
-    return this.http.get<Calendartaskextended[]>(`${this.uri}/task/get/byidandmonth`, {params: params});
+    return this.http.get<Calendartaskextended[]>(`${this.uri}/extended/foruser/bymonth`, {params: params});
   }
 
   addNewCalendarTask(title: string, description: string,

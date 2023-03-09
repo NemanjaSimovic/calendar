@@ -6,6 +6,7 @@ import { Calendar } from 'src/app/models/calendar.model';
 import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 import { CalendartaskService } from 'src/app/services/calenartask.service';
 import { CalendarService } from 'src/app/services/calendar.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 import { MonthpickerDateAdapter } from './monthpicker-date-adapter';
 
 
@@ -24,7 +25,7 @@ import { MonthpickerDateAdapter } from './monthpicker-date-adapter';
 export class GlobalCalendarComponent implements OnInit {
 
 
-  constructor(private taskService: CalendartaskService, private calendarService: CalendarService) { }
+  constructor(private taskService: CalendartaskService, private calendarService: CalendarService, private utilitiesService: UtilitiesService) { }
   //dummy for looping ngfor
   numSequence(n: number): Array<number> {
     return Array(n);
@@ -159,18 +160,35 @@ export class GlobalCalendarComponent implements OnInit {
     this.assignTasksByDay();
   }
 
+  proccessData(data: Calendartaskextended[]){
+    // resets selected day
+    this.selectedDay = 0;
+    this.setWeekDayOfFirstOfTheMonth();
+    this.setNumberOfDaysForSelectedMonth();
+
+    this.tasks = this.taskService.GMTtoLocalTimeForExtendedTaskArray(data);
+    this.filterTasksByCalendarId();
+
+    this.emptymatrix();
+    this.assignTasksByDay();
+  }
+
+  getLastUrlDirectory(): string{
+    var path = location.pathname;
+    var directories = path.split("/");
+    return directories[(directories.length - 1)];
+  }
+
   public chooseMonth(){
-    this.taskService.getCaltasksByMonth(this.dt).subscribe((data) => {
-      // resets selected day
-      this.selectedDay = 0;
-      this.setWeekDayOfFirstOfTheMonth();
-      this.setNumberOfDaysForSelectedMonth();
-
-      this.tasks = this.taskService.GMTtoLocalTimeForExtendedTaskArray(data);
-      this.filterTasksByCalendarId();
-
-      this.emptymatrix();
-      this.assignTasksByDay();
-    });
+    var lastDirecotry = this.getLastUrlDirectory();
+    if(lastDirecotry == this.utilitiesService.globalCalendarLastDirectory){
+      this.taskService.getCaltasksByMonth(this.dt).subscribe((data) => {
+        this.proccessData(data);
+      });
+    }else{
+      this.taskService.getCaltasksByIdAndMonth(this.dt).subscribe((data) => {
+        this.proccessData(data);
+      });
+    }
   }
 }

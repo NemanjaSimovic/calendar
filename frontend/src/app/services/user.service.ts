@@ -36,7 +36,10 @@ export class UserService {
   loginUser(username: string, password: string){
     var body = {
       username: username,
-      password: password
+      password: password,
+      name: "",
+      email: "",
+      roleId: 0
     }
     return  this.http.post<User>(`${this.uri}/login`, body)
     .pipe(catchError(this.handleError));
