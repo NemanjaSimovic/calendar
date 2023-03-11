@@ -42,3 +42,16 @@ button {
 .time-input-div :hover{
   cursor: pointer;
 }
+
+
+.light-red-background{
+  background-color: rgb(255, 219, 219);
+}
+
+.light-green-background{
+  background-color: rgb(241, 255, 235);
+}
+
+.light-green-background :hover{
+  background-color: rgb(156, 196, 141);
+}

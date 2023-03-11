@@ -52,7 +52,10 @@
         <mat-form-field  class="full-width" appearance="fill" *ngIf="isTaskTimeSet">
           <mat-label>Participants: </mat-label>
           <mat-select [(value)]="selectedUsersIds" multiple>
-            <mat-option *ngFor="let user of allUsers" [value]="user.id">{{user.name}}</mat-option>
+            <mat-option [ngClass] ="{'light-red-background':!user.isAvailable}"
+            *ngFor="let user of allUsersAvailability" [value]="user.id" [disabled]="!user.isAvailable">
+            {{user.name}} {{user.isAvailable ? "": " - - - User unavailable at that time"}}
+          </mat-option>
           </mat-select>
         </mat-form-field>
 

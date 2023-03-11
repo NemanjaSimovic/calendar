@@ -12,6 +12,7 @@ import { Calendar } from 'src/app/models/calendar.model';
 import { CalendarService } from 'src/app/services/calendar.service';
 import { Emoji } from 'src/app/models/emoji.model';
 import { EmojiService } from 'src/app/services/emoji.service';
+import { UserAvailabilityDto } from 'src/app/models/user-availability-dto.model';
 
 @Component({
   selector: 'app-create-task',
@@ -39,7 +40,7 @@ export class CreateTaskComponent implements OnInit {
 
   calendarColors: Calendarcolor[] = [];
 
-  allUsers: User[] = [];
+  allUsersAvailability: UserAvailabilityDto[] = [];
   selectedUsersIds: number[] = [];
 
   creatorId: number = 0;
@@ -60,7 +61,6 @@ export class CreateTaskComponent implements OnInit {
     this.loadColors();
     this.loadCalendars();
     this.loadEmojis();
-    this.getAllUsers();
   }
 
   loadColors(){
@@ -137,12 +137,6 @@ export class CreateTaskComponent implements OnInit {
     this.endTime.setMinutes(this.endMinutes);
   }
 
-  getAllUsers(){
-    this.userService.getAll().subscribe(data => {
-      this.allUsers = data;
-    });
-  }
-
   setCreatorId(){
     var creator = this.userService.getCurUser();
     if(creator){
@@ -159,7 +153,7 @@ export class CreateTaskComponent implements OnInit {
       this.userService
       .GetUsersAvailabilityForTimeRange(this.startTime, this.endTime)
       .subscribe(data => {
-        console.log(data);
+        this.allUsersAvailability = data;
       });
     }else{
       console.log("Dates are not set");
