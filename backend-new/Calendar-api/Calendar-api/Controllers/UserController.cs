@@ -71,7 +71,7 @@ namespace Calendar_api.Controllers
 
         [HttpGet]
         [Route("availability")]
-        public async Task<List<UserAvailabillityDto>> GetUsersAvailabilityForTimeRange(DateTime startTime, DateTime endTime)
+        public async Task<List<UserAvailabilityDto>> GetUsersAvailabilityForTimeRange(DateTime startTime, DateTime endTime)
         {
             List<int> conflictedTaskIds = await _calendarTaskService.GetCalendarTaskIdsConflictedWithEnteredTime(startTime, endTime);
             List<int> unavailableUserIds = new List<int>();
@@ -84,7 +84,7 @@ namespace Calendar_api.Controllers
             }
 
             unavailableUserIds = unavailableUserIds.Distinct().ToList();
-            List<UserAvailabillityDto> usersAvailability = new List<UserAvailabillityDto>();
+            List<UserAvailabilityDto> usersAvailability = new List<UserAvailabilityDto>();
             List<User> allUsers = await _userService.GetAllAsync();
 
             foreach(User user in allUsers)
@@ -95,7 +95,7 @@ namespace Calendar_api.Controllers
                     availability = false;
                 }
 
-                UserAvailabillityDto userDto = new UserAvailabillityDto(user.Id, user.Name, availability);
+                UserAvailabilityDto userDto = new UserAvailabilityDto(user.Id, user.Name, availability);
                 usersAvailability.Add(userDto);
             }
 

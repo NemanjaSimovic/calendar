@@ -1,8 +1,9 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { catchError, Subject, throwError } from 'rxjs';
+import { UserAvailabilityDto } from '../models/user-availability-dto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +64,13 @@ export class UserService {
     .pipe(catchError(this.handleError));
   }
 
+  GetUsersAvailabilityForTimeRange(startTime: Date, endTime: Date){
+    var params = new HttpParams().append('startTime', startTime.toJSON()).append('endTime', endTime.toJSON());
+
+    return this.http.get<UserAvailabilityDto[]>(`${this.uri}/availability`, {params: params})
+    .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       alert("Status code: 0. This is usually due to CORS problems.");
@@ -74,7 +82,4 @@ export class UserService {
     }
     return throwError(() => new Error(error.error));
   }
-
-
-
 }

@@ -5,7 +5,7 @@ button {
   margin-top: 0.5rem;
   margin-left: 0.5rem;
 }
-  
+
 .loginDeo {
   display: flex;
   justify-content: center;
@@ -33,4 +33,12 @@ button {
 .centered-content {
     display: flex;
     justify-content: center;
+}
+
+.time-input-input{
+  background-color: rgb(243, 243, 243);
+}
+
+.time-input-div :hover{
+  cursor: pointer;
 }

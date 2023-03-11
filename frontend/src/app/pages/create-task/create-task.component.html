@@ -9,20 +9,23 @@
         </mat-form-field>
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker" [(ngModel)]="taskDate" name="taskdate">
+            <input matInput [matDatepicker]="picker" [(ngModel)]="taskDate" name="taskdate" (dateInput)="getUsersAvailability()">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        <div class="ngx-timepicker-field-example full-width">
-            Start time:
-            <ngx-timepicker-field [format]="24" [defaultTime]="'23:11'" [(ngModel)]="startHM" name="startHM"></ngx-timepicker-field>
-        </div>
-        <div class="ngx-timepicker-field-example full-width">
-            End time:
-            <ngx-timepicker-field [format]="24" [defaultTime]="'23:11'" [(ngModel)]="endHM" name="endHM"></ngx-timepicker-field>
+
+        <div class="full-width time-input-div">
+          Start time:
+          <input class="time-input-input" matInput placeholder="Click To Set Time" aria-label="12hr format" [format]="24" [ngxTimepicker]="start" readonly [(ngModel)]="startHM" name="startHM" (ngModelChange)="getUsersAvailability()">
+          <ngx-material-timepicker #start></ngx-material-timepicker>
         </div>
 
+        <div class="full-width time-input-div">
+          End time:
+          <input class="time-input-input" matInput placeholder="Click To Set Time" aria-label="12hr format" [format]="24" [ngxTimepicker]="end" readonly [(ngModel)]="endHM" name="endHM" (ngModelChange)="getUsersAvailability()">
+          <ngx-material-timepicker #end></ngx-material-timepicker>
+        </div>
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Pick a task calendar: </mat-label>
@@ -46,7 +49,7 @@
         </mat-form-field>
 
 
-        <mat-form-field  class="full-width" appearance="fill">
+        <mat-form-field  class="full-width" appearance="fill" *ngIf="isTaskTimeSet">
           <mat-label>Participants: </mat-label>
           <mat-select [(value)]="selectedUsersIds" multiple>
             <mat-option *ngFor="let user of allUsers" [value]="user.id">{{user.name}}</mat-option>

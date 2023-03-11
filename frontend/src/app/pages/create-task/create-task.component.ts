@@ -23,10 +23,11 @@ export class CreateTaskComponent implements OnInit {
   pickedCalednarColorId: number = 0;
   title: string = "";
   description: string = "";
-  taskDate: Date = new Date();
 
+  taskDate: Date = new Date();
   startHM: string = "";
   endHM: string = "";
+  isTaskTimeSet: boolean = false;
 
   startHours: number = 0;
   startMinutes: number = 0;
@@ -125,10 +126,8 @@ export class CreateTaskComponent implements OnInit {
 
   setUpStartEndTimes(){
     this.startTime = new Date(this.taskDate);
-    if(this.startLesserThanEndHM()){
-      this.endTime = new Date(this.taskDate);
-    }else{
-      this.endTime = new Date(this.taskDate);
+    this.endTime = new Date(this.taskDate);
+    if(!this.startLesserThanEndHM()){
       this.endTime.setDate(this.endTime.getDate() + 1);
     }
 
@@ -149,6 +148,21 @@ export class CreateTaskComponent implements OnInit {
     if(creator){
       //pronadji na netu kada stavljas malo kada veliko pocetno slovo atributa u klasi.
       this.creatorId = creator.id ?? -1;
+    }
+  }
+
+  getUsersAvailability(){
+    if(this.startHM && this.endHM && this.taskDate != null){
+      this.isTaskTimeSet = true;
+      this.setUpStartEndTimes();
+      this.selectedUsersIds = [];
+      this.userService
+      .GetUsersAvailabilityForTimeRange(this.startTime, this.endTime)
+      .subscribe(data => {
+        console.log(data);
+      });
+    }else{
+      console.log("Dates are not set");
     }
   }
 
