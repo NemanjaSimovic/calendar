@@ -1,3 +1,7 @@
 <div  *ngFor="let task of tasks" class="spacing-top">
-    <app-cal-task [task]="task" ></app-cal-task>
+  <app-cal-task [task]="task" ></app-cal-task>
+</div>
+
+<div  *ngFor="let holiday of holidays" class="spacing-top">
+  <app-cal-holiday [holiday]="holiday" ></app-cal-holiday>
 </div>

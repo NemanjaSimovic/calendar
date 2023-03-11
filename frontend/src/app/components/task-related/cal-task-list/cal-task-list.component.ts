@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CalendarHoliday } from 'src/app/models/calendar-holiday.model';
 import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 
 @Component({
@@ -10,6 +11,9 @@ export class CalTaskListComponent implements OnInit {
 
   @Input()
   tasks: Calendartaskextended[] | undefined;
+
+  @Input()
+  holidays: CalendarHoliday[] | undefined;
 
   constructor() { }
 

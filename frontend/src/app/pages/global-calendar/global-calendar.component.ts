@@ -2,9 +2,11 @@ import { Platform } from '@angular/cdk/platform';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { CalendarHoliday } from 'src/app/models/calendar-holiday.model';
 import { Calendar } from 'src/app/models/calendar.model';
 import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 import { CalendartaskService } from 'src/app/services/calenartask.service';
+import { CalendarHolidayService } from 'src/app/services/calendar-holiday.service';
 import { CalendarService } from 'src/app/services/calendar.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { MonthpickerDateAdapter } from './monthpicker-date-adapter';
@@ -25,7 +27,8 @@ import { MonthpickerDateAdapter } from './monthpicker-date-adapter';
 export class GlobalCalendarComponent implements OnInit {
 
 
-  constructor(private taskService: CalendartaskService, private calendarService: CalendarService, private utilitiesService: UtilitiesService) { }
+  constructor(private taskService: CalendartaskService, private calendarService: CalendarService,
+     private utilitiesService: UtilitiesService, private calendarHolidayService: CalendarHolidayService) { }
   //dummy for looping ngfor
   numSequence(n: number): Array<number> {
     return Array(n);
@@ -44,7 +47,12 @@ export class GlobalCalendarComponent implements OnInit {
   public unfixedTasks: Calendartaskextended[] = [];
   public tasks: Calendartaskextended[] = [];
   public filteredTasksByCalendarIds: Calendartaskextended[] = [];
+
+  public holidays: CalendarHoliday[] = [];
+  public filteredHolidaysByCalendarIds: CalendarHoliday[] = [];
+
   public daysOfTheMonth: Calendartaskextended[][] = new Array(31);
+  public holidaysOfTheMonth: CalendarHoliday[][] = new Array(31);
 
   public selectedDay: number = 0;
 
@@ -58,7 +66,7 @@ export class GlobalCalendarComponent implements OnInit {
   public selectedCalendarIds: number[] = [];
 
   public getAllCalendars(){
-    this.calendarService.getAllForTask().subscribe(data => {
+    this.calendarService.getAll().subscribe(data => {
       this.allCalendars = data;
       if(this.allCalendars){
         this.allCalendars.forEach(element => {
@@ -89,13 +97,20 @@ export class GlobalCalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCalendars();
-    this.emptymatrix();
+    this.emptyTaskMatrix();
+    this.emptyHolidaymatrix();
     this.setPickedMonthToTodays();
   }
 
-  public emptymatrix(){
+  public emptyTaskMatrix(){
     for(var i=0; i<=31; i++){
       this.daysOfTheMonth[i] = [];
+    }
+  }
+
+  public emptyHolidaymatrix(){
+    for(var i=0; i<=31; i++){
+      this.holidaysOfTheMonth[i] = [];
     }
   }
 
@@ -103,6 +118,13 @@ export class GlobalCalendarComponent implements OnInit {
     this.filteredTasksByCalendarIds.forEach(element => {
       var taskDate = new Date(element.startTime).getDate();
       this.daysOfTheMonth[taskDate].push(element);
+    });
+  }
+
+  public assignHolidaysByDay(){
+    this.filteredHolidaysByCalendarIds.forEach(element => {
+      var holidayDate = new Date(new Date().getFullYear(), element.month-1, element.day).getDate();
+      this.holidaysOfTheMonth[holidayDate].push(element);
     });
   }
 
@@ -154,13 +176,17 @@ export class GlobalCalendarComponent implements OnInit {
     this.filteredTasksByCalendarIds = this.tasks.filter(t => this.selectedCalendarIds.includes(t.calendarId));
   }
 
+  public filterHolidaysByCalendarId(){
+    this.filteredHolidaysByCalendarIds = this.holidays.filter(t => this.selectedCalendarIds.includes(t.calendarId));
+  }
+
   public onCalendarsChange(){
     this.filterTasksByCalendarId();
-    this.emptymatrix();
+    this.emptyTaskMatrix();
     this.assignTasksByDay();
   }
 
-  proccessData(data: Calendartaskextended[]){
+  proccessTaskData(data: Calendartaskextended[]){
     // resets selected day
     this.selectedDay = 0;
     this.setWeekDayOfFirstOfTheMonth();
@@ -169,8 +195,16 @@ export class GlobalCalendarComponent implements OnInit {
     this.tasks = this.taskService.GMTtoLocalTimeForExtendedTaskArray(data);
     this.filterTasksByCalendarId();
 
-    this.emptymatrix();
+    this.emptyTaskMatrix();
     this.assignTasksByDay();
+  }
+
+  proccessHolidayData(data: CalendarHoliday[]){
+    this.holidays = data;
+    this.filterHolidaysByCalendarId();
+
+    this.emptyHolidaymatrix();
+    this.assignHolidaysByDay();
   }
 
   getLastUrlDirectory(): string{
@@ -183,12 +217,16 @@ export class GlobalCalendarComponent implements OnInit {
     var lastDirecotry = this.getLastUrlDirectory();
     if(lastDirecotry == this.utilitiesService.globalCalendarLastDirectory){
       this.taskService.getCaltasksByMonth(this.dt).subscribe((data) => {
-        this.proccessData(data);
+        this.proccessTaskData(data);
       });
     }else{
       this.taskService.getCaltasksByIdAndMonth(this.dt).subscribe((data) => {
-        this.proccessData(data);
+        this.proccessTaskData(data);
       });
     }
+
+    this.calendarHolidayService.getCaltasksByMonth(this.dt.getMonth()+1).subscribe((data => {
+      this.proccessHolidayData(data);
+    }));
   }
 }

@@ -9,6 +9,7 @@ namespace Calendar_api.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<Calendar> Calendar => Set<Calendar>();
         public DbSet<CalendarTask> CalendarTask => Set<CalendarTask>();
+        public DbSet<CalendarHoliday> CalendarHoliday => Set<CalendarHoliday>();
         public DbSet<CalendarColor> CalendarColor => Set<CalendarColor>();
         public DbSet<Emoji> Emoji => Set<Emoji>();
         public DbSet<User> User => Set<User>();
