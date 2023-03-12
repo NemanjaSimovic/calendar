@@ -41,7 +41,7 @@
         <mat-grid-tile *ngFor="let tasksList of dummyCells"></mat-grid-tile>
         <!-- outputing calendar day cells -->
         <mat-grid-tile *ngFor="let tasksList of daysOfTheMonth | slice:1:maxDaysOfTheMonth+1; index as i">
-            <app-calendar-day class="fill-cell" [taskList]="tasksList" [day]="i+1" (currentlySelectedDay)="setCurrentlySelectedDay($event)" ></app-calendar-day>
+            <app-calendar-day class="fill-cell" [day]="i+1" [taskList]="tasksList" [holidayDtoList]="holidaysOfTheMonth[i+1]" (currentlySelectedDay)="setCurrentlySelectedDay($event)" ></app-calendar-day>
         </mat-grid-tile>
     </mat-grid-list>
 </div>

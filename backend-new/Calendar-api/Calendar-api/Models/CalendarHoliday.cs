@@ -8,18 +8,18 @@
         public int Day { get; set; }
         public int Month { get; set; }
         public int CalendarId { get; set; }
-        public int ColorId { get; set; }
+        public int CalendarColorId { get; set; }
         public int EmojiId { get; set; }
 
         public CalendarHoliday(string title, string description,
-        int day, int month, int calendarId, int colorId, int emojiId)
+        int day, int month, int calendarId, int calendarColorId, int emojiId)
         {
             Title = title;
             Description = description;
             Day = day;
             Month = month;
             CalendarId = calendarId;
-            ColorId = colorId;
+            CalendarColorId = calendarColorId;
             EmojiId = emojiId;
         }
     }

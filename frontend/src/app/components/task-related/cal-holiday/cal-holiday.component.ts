@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CalendarHoliday } from 'src/app/models/calendar-holiday.model';
+import { CalendarHolidayDto } from 'src/app/models/calendar-holiday-dto.model';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { CalendarHoliday } from 'src/app/models/calendar-holiday.model';
 })
 export class CalHolidayComponent implements OnInit {
   @Input()
-  holiday: CalendarHoliday = new CalendarHoliday();
+  holiday: CalendarHolidayDto = new CalendarHolidayDto();
 
 
   constructor() { }

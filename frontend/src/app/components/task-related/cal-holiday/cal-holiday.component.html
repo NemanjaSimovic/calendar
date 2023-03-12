@@ -1,8 +1,8 @@
 <!-- <div class="spacing-top"> -->
-    <mat-expansion-panel hideToggle style="margin-top: 0.5rem; background-color:cornflowerblue">
+    <mat-expansion-panel hideToggle style="margin-top: 0.5rem; background-color:cornflowerblue" [ngStyle]="{'background-color': holiday.calendarColorBackgroundColor }">
         <mat-expansion-panel-header>
         <mat-panel-title  class="tsk" >
-            {{holiday.emojiId}} {{holiday.title}}
+            {{holiday.emojiEmoticon}} {{holiday.title}}
             <hr>
         </mat-panel-title>
         </mat-expansion-panel-header>

@@ -2,7 +2,7 @@ import { Platform } from '@angular/cdk/platform';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { CalendarHoliday } from 'src/app/models/calendar-holiday.model';
+import { CalendarHolidayDto } from 'src/app/models/calendar-holiday-dto.model';
 import { Calendar } from 'src/app/models/calendar.model';
 import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
 import { CalendartaskService } from 'src/app/services/calenartask.service';
@@ -48,11 +48,11 @@ export class GlobalCalendarComponent implements OnInit {
   public tasks: Calendartaskextended[] = [];
   public filteredTasksByCalendarIds: Calendartaskextended[] = [];
 
-  public holidays: CalendarHoliday[] = [];
-  public filteredHolidaysByCalendarIds: CalendarHoliday[] = [];
+  public holidays: CalendarHolidayDto[] = [];
+  public filteredHolidaysByCalendarIds: CalendarHolidayDto[] = [];
 
   public daysOfTheMonth: Calendartaskextended[][] = new Array(31);
-  public holidaysOfTheMonth: CalendarHoliday[][] = new Array(31);
+  public holidaysOfTheMonth: CalendarHolidayDto[][] = new Array(31);
 
   public selectedDay: number = 0;
 
@@ -199,7 +199,7 @@ export class GlobalCalendarComponent implements OnInit {
     this.assignTasksByDay();
   }
 
-  proccessHolidayData(data: CalendarHoliday[]){
+  proccessHolidayData(data: CalendarHolidayDto[]){
     this.holidays = data;
     this.filterHolidaysByCalendarId();
 
@@ -225,7 +225,7 @@ export class GlobalCalendarComponent implements OnInit {
       });
     }
 
-    this.calendarHolidayService.getCaltasksByMonth(this.dt.getMonth()+1).subscribe((data => {
+    this.calendarHolidayService.getCaltaskDtosByMonth(this.dt.getMonth()+1).subscribe((data => {
       this.proccessHolidayData(data);
     }));
   }

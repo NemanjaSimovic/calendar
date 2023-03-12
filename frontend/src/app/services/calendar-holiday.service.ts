@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { CalendarHolidayDto } from '../models/calendar-holiday-dto.model';
 import { CalendarHoliday } from '../models/calendar-holiday.model';
 
 @Injectable({
@@ -15,5 +16,10 @@ export class CalendarHolidayService {
   getCaltasksByMonth(month: number){
     const params = new HttpParams().append('month', month);
     return this.http.get<CalendarHoliday[]>(`${this.uri}/bymonth`, {params: params});
+  }
+
+  getCaltaskDtosByMonth(month: number){
+    const params = new HttpParams().append('month', month);
+    return this.http.get<CalendarHolidayDto[]>(`${this.uri}/dto/bymonth`, {params: params});
   }
 }
