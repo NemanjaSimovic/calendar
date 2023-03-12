@@ -24,9 +24,9 @@ namespace Calendar_api.Services
             return await _context.CalendarHoliday.ToListAsync();
         }
 
-        public async Task<List<CalendarHoliday>> GetByMonthAsync(int month)
+        public async Task<List<CalendarHoliday>> GetByMonthAsync(int month, int year)
         {
-            return await _context.CalendarHoliday.Where(h => h.Month == month).ToListAsync();
+            return await _context.CalendarHoliday.Where(h => h.Month == month && (h.IsRepeatedYearly || (!h.IsRepeatedYearly && h.Year == year))).ToListAsync();
         }
 
         public async Task<Calendar?> GetItemById(int id)

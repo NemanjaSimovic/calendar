@@ -35,14 +35,14 @@ namespace Calendar_api.Controllers
         [Route("bymonth")]
         public async Task<ActionResult<List<CalendarHoliday>>> GetByMonthAsync(int month, int year)
         {
-            return Ok(JsonSerializer.Serialize(await _calendarHolidayService.GetByMonthAsync(month), Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
+            return Ok(JsonSerializer.Serialize(await _calendarHolidayService.GetByMonthAsync(month, year), Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
 
         [HttpGet]
         [Route("dto/bymonth")]
         public async Task<ActionResult<List<CalendarHoliday>>> GetByMonthDtosAsync(int month, int year)
         {
-            List<CalendarHoliday> allHolidays = await _calendarHolidayService.GetByMonthAsync(month);
+            List<CalendarHoliday> allHolidays = await _calendarHolidayService.GetByMonthAsync(month, year);
             List<CalendarHolidayDto> allHolidayDtos = await ConvertCalendarHolidayToDtoAsync(allHolidays);
             return Ok(JsonSerializer.Serialize(allHolidayDtos, Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }

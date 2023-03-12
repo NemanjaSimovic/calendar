@@ -225,7 +225,7 @@ export class GlobalCalendarComponent implements OnInit {
       });
     }
 
-    this.calendarHolidayService.getCaltaskDtosByMonth(this.dt.getMonth()+1).subscribe((data => {
+    this.calendarHolidayService.getCaltaskDtosByMonth(this.dt.getMonth()+1, this.dt.getFullYear()).subscribe((data => {
       this.proccessHolidayData(data);
     }));
   }

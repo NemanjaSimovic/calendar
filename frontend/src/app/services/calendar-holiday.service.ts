@@ -13,13 +13,13 @@ export class CalendarHolidayService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getCaltasksByMonth(month: number){
-    const params = new HttpParams().append('month', month);
+  getCaltasksByMonth(month: number, year: number){
+    const params = new HttpParams().append('month', month).append('year', year);
     return this.http.get<CalendarHoliday[]>(`${this.uri}/bymonth`, {params: params});
   }
 
-  getCaltaskDtosByMonth(month: number){
-    const params = new HttpParams().append('month', month);
+  getCaltaskDtosByMonth(month: number, year: number){
+    const params = new HttpParams().append('month', month).append('year', year);;
     return this.http.get<CalendarHolidayDto[]>(`${this.uri}/dto/bymonth`, {params: params});
   }
 
