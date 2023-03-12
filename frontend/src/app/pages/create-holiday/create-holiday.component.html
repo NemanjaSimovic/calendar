@@ -1,0 +1,47 @@
+<div>
+  <mat-card>
+    <form>
+      <mat-form-field class="full-width">
+          <input type="text" matInput [(ngModel)]="title" name="title" placeholder="Title">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+          <input type="text" matInput [(ngModel)]="description" name="description" placeholder="Brief Description:">
+      </mat-form-field>
+
+
+      <mat-form-field class="full-width">
+        <input type="number" min="1" max="31" matInput [(ngModel)]="pickedDay" name="day" placeholder="Day:">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input type="number" min="1" max="12" matInput [(ngModel)]="pickedMonth" name="month" placeholder="Month:">
+      </mat-form-field>
+
+
+      <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Pick a task calendar: </mat-label>
+          <mat-select  [(value)]="pickedCalendarId">
+          <mat-option *ngFor="let c of calendars" value="{{c.id}}">{{c.name}} - {{c.description}}</mat-option>
+          </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Pick a task color: </mat-label>
+        <mat-select  [(value)]="pickedCalednarColorId">
+        <mat-option *ngFor="let c of calendarColors" value="{{c.id}}" [style.background-color]="c.backgroundColor" [style.color]="c.fontColor ? c.fontColor : 'rgb(0, 0, 0)'" >{{c.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Pick a task emoji: </mat-label>
+        <mat-select  [(value)]="pickedEmojiId">
+        <mat-option *ngFor="let e of emojis" value="{{e.id}}">{{e.emoticon}} - {{e.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="centered-content">
+        <br>
+        <button class="button-margins" mat-raised-button color="warn" (click)="addHoliday()">Add Task</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -35,6 +35,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { CreateTaskComponent } from './pages/create-task/create-task.component';
 import { CalHolidayComponent } from './components/task-related/cal-holiday/cal-holiday.component';
+import { CreateHolidayComponent } from './pages/create-holiday/create-holiday.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CalHolidayComponent } from './components/task-related/cal-holiday/cal-h
     LoginComponent,
     RegisterComponent,
     CreateTaskComponent,
-    CalHolidayComponent
+    CalHolidayComponent,
+    CreateHolidayComponent
   ],
   imports: [
     BrowserModule,

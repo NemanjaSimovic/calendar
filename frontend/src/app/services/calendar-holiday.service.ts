@@ -22,4 +22,20 @@ export class CalendarHolidayService {
     const params = new HttpParams().append('month', month);
     return this.http.get<CalendarHolidayDto[]>(`${this.uri}/dto/bymonth`, {params: params});
   }
+
+  addNewCalendarHoliday(title: string, description: string, day: number, month: number,
+    calendarId: number, calendarColorId: number, emojiId: number
+  ){
+    var body = {
+      title: title,
+      description: description,
+      day: day,
+      month: month,
+      calendarId: calendarId,
+      calendarColorId: calendarColorId,
+      emojiId: emojiId
+    }
+
+    return this.http.post(`${this.uri}`, body);
+  }
 }
