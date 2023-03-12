@@ -16,6 +16,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card'
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
@@ -75,6 +76,7 @@ import { CreateHolidayComponent } from './pages/create-holiday/create-holiday.co
     MatGridListModule,
     MatExpansionModule,
     MatCardModule,
+    MatCheckboxModule,
 
     NgxMaterialTimepickerModule
   ],

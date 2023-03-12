@@ -20,6 +20,9 @@ export class CreateHolidayComponent implements OnInit {
 
   pickedDay: number = 0;
   pickedMonth: number = 0;
+  pickedYear?: number;
+
+  isRepeatedYearly: boolean = true;
 
   startTime: Date = new Date();
   endTime: Date = new Date();
@@ -42,6 +45,10 @@ export class CreateHolidayComponent implements OnInit {
     this.loadColors();
     this.loadCalendars();
     this.loadEmojis();
+  }
+
+  printValue(){
+    console.log(this.isRepeatedYearly);
   }
 
   loadColors(){
@@ -77,6 +84,10 @@ export class CreateHolidayComponent implements OnInit {
   }
 
   allFieldsCheck(): boolean{
+    if(!this.isRepeatedYearly && (!this.pickedYear || this.pickedYear < 1 || this.pickedYear > 3000)){
+      alert("Year must be in range 1-3000 if repeated yearly option is not selected!");
+      return false;
+    }
     if(!this.pickedMonth || this.pickedMonth < 1 || this.pickedMonth > 12){
       alert("Month must be in range 1-12");
       return false;
@@ -109,8 +120,9 @@ export class CreateHolidayComponent implements OnInit {
       return;
     }
 
-    this.calendarHolidayService.addNewCalendarHoliday(this.title, this.description, this.pickedDay, this.pickedMonth,
-       this.pickedCalendarId, this.pickedCalednarColorId, this.pickedEmojiId)
+    this.calendarHolidayService.addNewCalendarHoliday(this.title, this.description,
+       this.pickedCalendarId, this.pickedCalednarColorId, this.pickedEmojiId,
+       this.isRepeatedYearly, this.pickedDay, this.pickedMonth, this.pickedYear)
       .subscribe( data => {
             console.log(data);
     });

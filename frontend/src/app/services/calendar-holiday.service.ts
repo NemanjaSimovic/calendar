@@ -23,17 +23,20 @@ export class CalendarHolidayService {
     return this.http.get<CalendarHolidayDto[]>(`${this.uri}/dto/bymonth`, {params: params});
   }
 
-  addNewCalendarHoliday(title: string, description: string, day: number, month: number,
-    calendarId: number, calendarColorId: number, emojiId: number
+  addNewCalendarHoliday(title: string, description: string,
+    calendarId: number, calendarColorId: number, emojiId: number,
+    isRepeatedYearly: boolean, day: number, month: number, year?: number
   ){
     var body = {
       title: title,
       description: description,
-      day: day,
-      month: month,
       calendarId: calendarId,
       calendarColorId: calendarColorId,
-      emojiId: emojiId
+      emojiId: emojiId,
+      isRepeatedYearly: isRepeatedYearly,
+      day: day,
+      month: month,
+      year: isRepeatedYearly ? null: year
     }
 
     return this.http.post(`${this.uri}`, body);

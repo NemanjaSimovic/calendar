@@ -33,14 +33,14 @@ namespace Calendar_api.Controllers
 
         [HttpGet]
         [Route("bymonth")]
-        public async Task<ActionResult<List<CalendarHoliday>>> GetByMonthAsync(int month)
+        public async Task<ActionResult<List<CalendarHoliday>>> GetByMonthAsync(int month, int year)
         {
             return Ok(JsonSerializer.Serialize(await _calendarHolidayService.GetByMonthAsync(month), Utilities.Utilities.JsonCaseLowerCaseSerializeOption));
         }
 
         [HttpGet]
         [Route("dto/bymonth")]
-        public async Task<ActionResult<List<CalendarHoliday>>> GetByMonthDtosAsync(int month)
+        public async Task<ActionResult<List<CalendarHoliday>>> GetByMonthDtosAsync(int month, int year)
         {
             List<CalendarHoliday> allHolidays = await _calendarHolidayService.GetByMonthAsync(month);
             List<CalendarHolidayDto> allHolidayDtos = await ConvertCalendarHolidayToDtoAsync(allHolidays);
@@ -69,10 +69,10 @@ namespace Calendar_api.Controllers
 
                 CalendarHolidayDto holidayDto =
                 new CalendarHolidayDto(
-                    holiday.Id, holiday.Title, holiday.Description,
-                    holiday.Day, holiday.Month, holiday.CalendarId,
+                    holiday.Id, holiday.Title, holiday.Description, holiday.CalendarId,
                     holiday.CalendarColorId, calendarColor.BackgroundColor,
-                    holiday.EmojiId, emoji.Emoticon, calendarColor.FontColor
+                    holiday.EmojiId, emoji.Emoticon, holiday.IsRepeatedYearly,
+                    holiday.Day, holiday.Month, holiday.Year, calendarColor.FontColor
                 );
                 holidayDtos.Add(holidayDto);
             }
