@@ -8,4 +8,5 @@ export class UtilitiesService {
   constructor() { }
 
   public globalCalendarLastDirectory: string = "global";
+  public PersonalHolidayCalendarId: number = 4;
 }

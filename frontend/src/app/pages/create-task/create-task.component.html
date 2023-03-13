@@ -29,7 +29,7 @@
 
         <mat-form-field class="full-width" appearance="fill">
             <mat-label>Pick a task calendar: </mat-label>
-            <mat-select  [(value)]="pickedCalendarId">
+            <mat-select  [(value)]="pickedCalendarId" (selectionChange)="getUsersAvailability()">
             <mat-option *ngFor="let c of calendars" value="{{c.id}}">{{c.name}} - {{c.description}}</mat-option>
             </mat-select>
         </mat-form-field>

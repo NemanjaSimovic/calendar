@@ -11,11 +11,14 @@
         public int CreatorId { get; set; }
         public int CalendarColorId { get; set; }
         public int EmojiId { get; set; } = 0;
+        public bool IsNotWorkingHoliday { get; set; }
         public bool KnownForEveryone { get; set; }
         public string? CaptionForEveryone { get; set; }
         public string? DescriptionForEveryone { get; set; }
 
-        public CalendarTask(string title, string description, DateTime startTime, DateTime endTime, int calendarId, int creatorId, int calendarColorId, int emojiId, bool knownForEveryone, string? captionForEveryone, string? descriptionForEveryone)
+        public CalendarTask(string title, string description, DateTime startTime, DateTime endTime, int calendarId,
+            int creatorId, int calendarColorId, int emojiId, bool isNotWorkingHoliday, bool knownForEveryone,
+            string? captionForEveryone, string? descriptionForEveryone)
         {
             Title = title;
             Description = description;
@@ -25,6 +28,7 @@
             CreatorId = creatorId;
             CalendarColorId = calendarColorId;
             EmojiId = emojiId;
+            IsNotWorkingHoliday = isNotWorkingHoliday;
             KnownForEveryone = knownForEveryone;
             CaptionForEveryone = captionForEveryone ?? "";
             DescriptionForEveryone = descriptionForEveryone ?? "";

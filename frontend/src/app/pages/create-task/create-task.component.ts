@@ -1,9 +1,4 @@
-import { ListKeyManager } from '@angular/cdk/a11y';
-import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Calendartaskextended } from 'src/app/models/calendartaskextended.model';
-import { User } from 'src/app/models/user.model';
 import { Calendarcolor } from 'src/app/models/calendarcolor.model';
 import { CalendartaskService } from 'src/app/services/calenartask.service';
 import { CalendarcolorService } from 'src/app/services/calendarcolor.service';
@@ -140,18 +135,21 @@ export class CreateTaskComponent implements OnInit {
   setCreatorId(){
     var creator = this.userService.getCurUser();
     if(creator){
-      //pronadji na netu kada stavljas malo kada veliko pocetno slovo atributa u klasi.
       this.creatorId = creator.id ?? -1;
     }
   }
 
+  resetSelectedUsers(){
+    this.selectedUsersIds = [];
+  }
+
   getUsersAvailability(){
+    this.resetSelectedUsers();
     if(this.startHM && this.endHM && this.taskDate != null){
       this.isTaskTimeSet = true;
       this.setUpStartEndTimes();
-      this.selectedUsersIds = [];
       this.userService
-      .GetUsersAvailabilityForTimeRange(this.startTime, this.endTime)
+      .GetUsersAvailabilityForTimeRange(this.startTime, this.endTime, this.pickedCalendarId)
       .subscribe(data => {
         this.allUsersAvailability = data;
       });
@@ -171,7 +169,7 @@ export class CreateTaskComponent implements OnInit {
     this.calendartaskService.addNewCalendarTask(this.title, this.description,
       this.startTime, this.endTime, this.pickedCalendarId, this.creatorId,
       this.pickedCalednarColorId, this.pickedEmojiId, this.selectedUsersIds,
-      true, undefined, undefined)
+      true, false, undefined, undefined)
       .subscribe( data => {
             console.log(data);
     });

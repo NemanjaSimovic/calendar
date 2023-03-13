@@ -14,5 +14,7 @@ namespace Calendar_api.Utilities
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             WriteIndented = true
         };
+
+        public static int workCalendarId = 1;
     }
 }

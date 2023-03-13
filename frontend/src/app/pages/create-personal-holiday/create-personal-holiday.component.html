@@ -1,0 +1,53 @@
+<div>
+  <mat-card>
+    <form>
+      <mat-form-field class="full-width">
+          <input type="text" matInput [(ngModel)]="title" name="title" placeholder="Title">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+          <input type="text" matInput [(ngModel)]="description" name="description" placeholder="Brief Description:">
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Start Date: </mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="taskDate" name="taskdate">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input type="number" min="1" max="21" matInput [(ngModel)]="numberOfDays" name="days" placeholder="Number of Days:">
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Pick a task color: </mat-label>
+        <mat-select  [(value)]="pickedCalednarColorId">
+        <mat-option *ngFor="let c of calendarColors" value="{{c.id}}" [style.background-color]="c.backgroundColor" [style.color]="c.fontColor ? c.fontColor : 'rgb(0, 0, 0)'" >{{c.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Pick a task emoji: </mat-label>
+        <mat-select  [(value)]="pickedEmojiId">
+        <mat-option *ngFor="let e of emojis" value="{{e.id}}">{{e.emoticon}} - {{e.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field  class="full-width" appearance="fill">
+        <mat-label>Participants: </mat-label>
+        <mat-select [(value)]="selectedUsersIds" multiple>
+          <mat-option *ngFor="let user of allUsers" [value]="user.id">
+            {{user.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <div class="centered-content">
+        <br>
+        <button class="button-margins" mat-raised-button color="warn" (click)="addTask()">Add Task</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -64,8 +64,8 @@ export class UserService {
     .pipe(catchError(this.handleError));
   }
 
-  GetUsersAvailabilityForTimeRange(startTime: Date, endTime: Date){
-    var params = new HttpParams().append('startTime', startTime.toJSON()).append('endTime', endTime.toJSON());
+  GetUsersAvailabilityForTimeRange(startTime: Date, endTime: Date, calendarId: number){
+    var params = new HttpParams().append('startTime', startTime.toJSON()).append('endTime', endTime.toJSON()).append('calendarId', calendarId);
 
     return this.http.get<UserAvailabilityDto[]>(`${this.uri}/availability`, {params: params})
     .pipe(catchError(this.handleError));

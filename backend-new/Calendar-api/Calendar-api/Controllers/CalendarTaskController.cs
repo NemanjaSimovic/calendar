@@ -87,6 +87,7 @@ namespace Calendar_api.Controllers
                 calendarTaskExtended.CreatorId,
                 calendarTaskExtended.CalendarColorId,
                 calendarTaskExtended.EmojiId,
+                calendarTaskExtended.IsNotWorkingHoliday,
                 calendarTaskExtended.KnownForEveryone,
                 calendarTaskExtended.CaptionForEveryone,
                 calendarTaskExtended.DescriptionForEveryone
@@ -148,6 +149,7 @@ namespace Calendar_api.Controllers
                     calendarColor.BackgroundColor,
                     task.EmojiId,
                     emoji.Emoticon,
+                    task.IsNotWorkingHoliday,
                     task.KnownForEveryone,
                     calendarColor.FontColor,
                     task.CaptionForEveryone,

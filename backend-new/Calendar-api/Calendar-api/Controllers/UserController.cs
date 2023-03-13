@@ -71,9 +71,9 @@ namespace Calendar_api.Controllers
 
         [HttpGet]
         [Route("availability")]
-        public async Task<List<UserAvailabilityDto>> GetUsersAvailabilityForTimeRange(DateTime startTime, DateTime endTime)
+        public async Task<List<UserAvailabilityDto>> GetUsersAvailabilityForTimeRange(DateTime startTime, DateTime endTime, int calendarId)
         {
-            List<int> conflictedTaskIds = await _calendarTaskService.GetCalendarTaskIdsConflictedWithEnteredTime(startTime, endTime);
+            List<int> conflictedTaskIds = await _calendarTaskService.GetCalendarTaskIdsConflictedWithEnteredTime(startTime, endTime, calendarId);
             List<int> unavailableUserIds = new List<int>();
             List<int> unavailableUserIdsForCalendarTask;
 

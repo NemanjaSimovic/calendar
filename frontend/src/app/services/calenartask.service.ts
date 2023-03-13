@@ -57,7 +57,7 @@ export class CalendartaskService {
   addNewCalendarTask(title: string, description: string,
     startTime: Date, endTime: Date, calendarId: number,
     creatorId: number, calendarColorId: number, emojiId: number,
-    participantIds: number[], knownForEveryone: boolean,
+    participantIds: number[], isNotWorkingHoliday: boolean, knownForEveryone: boolean,
     captionForEveryone?: string, descriptionForEveryone?: string
     ){
 
@@ -71,6 +71,7 @@ export class CalendartaskService {
       creatorId: creatorId,
       calendarColorId: calendarColorId,
       emojiId: emojiId,
+      isNotWorkingHoliday: isNotWorkingHoliday,
       knownForEveryone: knownForEveryone,
       captionForEveryone: captionForEveryone ?? "",
       descriptionForEveryone: descriptionForEveryone ?? "",

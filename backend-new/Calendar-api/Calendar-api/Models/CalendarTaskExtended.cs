@@ -24,6 +24,8 @@
         public int EmojiId { get; set; } = 0;
         public string? EmojiEmoticon { get; set; }
 
+        public bool IsNotWorkingHoliday { get; set; }
+
         public bool KnownForEveryone { get; set; }
         public string? CaptionForEveryone { get; set; }
         public string? DescriptionForEveryone { get; set; }
@@ -32,7 +34,7 @@
             DateTime startTime, DateTime endTime, int calendarId, string calendarName,
             List<int> participantIds, List<string> participantNames, int creatorId, string creatorName,
             int calendarColorId, string calendarColorBackgroundColor, int emojiId, string emojiEmoticon,
-            bool knownForEveryone, string? calendarColorFontColor, string? captionForEveryone,
+            bool isNotWorkingHoliday, bool knownForEveryone, string? calendarColorFontColor, string? captionForEveryone,
             string? descriptionForEveryone)
 
         {
@@ -51,7 +53,8 @@
             CalendarColorBackgroundColor = calendarColorBackgroundColor;
             CalendarColorFontColor = calendarColorFontColor;
             EmojiId = emojiId;
-            this.EmojiEmoticon = emojiEmoticon;
+            EmojiEmoticon = emojiEmoticon;
+            IsNotWorkingHoliday = isNotWorkingHoliday;
             KnownForEveryone = knownForEveryone;
             CaptionForEveryone = captionForEveryone;
             DescriptionForEveryone = descriptionForEveryone;

@@ -11,7 +11,8 @@
           <a routerLink="/calendar/global" mat-menu-item class="drop-down-menu-style">Global Calendar</a>
           <a routerLink="/calendar/user" mat-menu-item class="drop-down-menu-style" *ngIf="loggedIn">My Calendar</a>
           <a routerLink="/create/task" mat-menu-item class="drop-down-menu-style" *ngIf="loggedIn">Create New Task</a>
-          <a routerLink="/create/holiday" mat-menu-item class="drop-down-menu-style" *ngIf="loggedIn">Create New Holiday</a>
+          <a routerLink="/create/holiday" mat-menu-item class="drop-down-menu-style" *ngIf="loggedIn">Create Global Holiday</a>
+          <a routerLink="/create/personal/holiday" mat-menu-item class="drop-down-menu-style" *ngIf="loggedIn">Create Personal Holiday</a>
     </mat-menu>
 
     <span class="meni-span">

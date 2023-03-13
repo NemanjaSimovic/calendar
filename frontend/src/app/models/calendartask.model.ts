@@ -14,6 +14,8 @@ export class Calendartask {
 
   emojiId: number = 1;
 
+  isNotWorkingHoliday: boolean = false;
+
   knownForEveryone: boolean = true;
   titleForEveryone?: string;
   descriptionForEveryone?: string;
