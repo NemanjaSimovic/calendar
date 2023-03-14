@@ -31,7 +31,7 @@ namespace Calendar_api.Services
         }
         public async Task<List<int>> GetCalendarTaskIdsConflictedWithEnteredTime(DateTime startTime, DateTime endTime, int calendarId)
         {
-            if(calendarId != Utilities.Utilities.workCalendarId)
+            if(calendarId != Utilities.Utilities.WorkCalendarId)
             {
                 return await _context.CalendarTask
                 .Where(t => (!t.IsNotWorkingHoliday && ((startTime <= t.StartTime && endTime > t.StartTime) || (startTime >= t.StartTime && startTime < t.EndTime))))

@@ -182,8 +182,11 @@ export class GlobalCalendarComponent implements OnInit {
 
   public onCalendarsChange(){
     this.filterTasksByCalendarId();
+    this.filterHolidaysByCalendarId();
     this.emptyTaskMatrix();
+    this.emptyHolidaymatrix();
     this.assignTasksByDay();
+    this.assignHolidaysByDay();
   }
 
   proccessTaskData(data: Calendartaskextended[]){
@@ -194,7 +197,7 @@ export class GlobalCalendarComponent implements OnInit {
 
     this.tasks = this.taskService.GMTtoLocalTimeForExtendedTaskArray(data);
     this.filterTasksByCalendarId();
-
+    this.filterHolidaysByCalendarId();
     this.emptyTaskMatrix();
     this.assignTasksByDay();
   }

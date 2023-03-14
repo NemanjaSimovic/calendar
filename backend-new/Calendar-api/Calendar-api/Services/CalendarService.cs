@@ -25,7 +25,7 @@ namespace Calendar_api.Services
 
         public async Task<List<Calendar>> GetAllForTaskAsync()
         {
-            return await _context.Calendar.Where(c => !c.IsForHolidays).ToListAsync();
+            return await _context.Calendar.Where(c => !c.IsForHolidays && c.Name != Utilities.Utilities.PersonalHolidayCalendarName).ToListAsync();
         }
 
         public async Task<List<Calendar>> GetAllForHolidayAsync()

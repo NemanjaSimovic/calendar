@@ -171,7 +171,7 @@ export class CreateTaskComponent implements OnInit {
       this.pickedCalednarColorId, this.pickedEmojiId, this.selectedUsersIds,
       true, false, undefined, undefined)
       .subscribe( data => {
-            console.log(data);
+        alert("Task successfully created!");
     });
   }
 

@@ -15,6 +15,7 @@ namespace Calendar_api.Utilities
             WriteIndented = true
         };
 
-        public static int workCalendarId = 1;
+        public static int WorkCalendarId = 1;
+        public static string PersonalHolidayCalendarName = "Personal holiday";
     }
 }

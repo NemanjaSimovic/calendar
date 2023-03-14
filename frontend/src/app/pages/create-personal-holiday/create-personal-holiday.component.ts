@@ -132,10 +132,9 @@ export class CreatePersonalHolidayComponent implements OnInit {
         this.pickedCalednarColorId, this.pickedEmojiId, this.selectedUsersIds,
         true, true, undefined, undefined)
         .subscribe( data => {
-              console.log(data);
-      });
+            alert("Personal holiday successfully created!");
+        });
     }
-
   }
 
 }

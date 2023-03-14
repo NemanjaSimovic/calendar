@@ -124,7 +124,7 @@ export class CreateHolidayComponent implements OnInit {
        this.pickedCalendarId, this.pickedCalednarColorId, this.pickedEmojiId,
        this.isRepeatedYearly, this.pickedDay, this.pickedMonth, this.pickedYear)
       .subscribe( data => {
-            console.log(data);
+        alert("Holiday successfully created!");
     });
   }
 
