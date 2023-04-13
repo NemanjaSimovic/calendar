@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Role } from 'src/app/models/role.model';
 import { User } from 'src/app/models/user.model';
 import { RoleService } from 'src/app/services/role.service';
@@ -19,7 +20,7 @@ export class RegisterComponent implements OnInit {
 
   allRoles: Role[] = [];
 
-  constructor(private userService: UserService, private roleService: RoleService) { }
+  constructor(private router: Router, private userService: UserService, private roleService: RoleService) { }
 
   ngOnInit(): void {
     this.getAllRoles();
@@ -34,7 +35,7 @@ export class RegisterComponent implements OnInit {
 
   registerUser(){
 
-    if(this.username == "" || this.password == "" || this.name == "" || this.email == "" || this.roleId < 1)
+    if(this.username == "" || this.password == "" || this.name == "" || this.email == "" /*|| this.roleId < 1*/)
     {
       alert("All form fields, must be filled!");
       return;
@@ -44,8 +45,9 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    this.userService.registerUser(this.username, this.password, this.name, this.email, this.roleId).subscribe((data) => {
-      console.log(data);
+    this.userService.registerUser(this.username, this.password, this.name, this.email, 2 /*this.roleId*/).subscribe((data) => {
+      alert(data);
+    this.router.navigate(["/auth/login"]);
     });
   }
 }
