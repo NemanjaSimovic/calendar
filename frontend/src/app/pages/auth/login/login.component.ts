@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   updateUser(){
     if(!this.username || this.username == "" || !this.password || this.password == ""){
-      console.log("Empty Field!");
+      alert("Empty Field!");
       return;
     }
     // console.log(this.username);
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate([""]);
         alert("Welcome " + this.userService.getCurUser()?.name + "!")
       }else {
-        console.log("Wrong username or password!");
+        alert("Wrong username or password!");
       }
     });
   }
