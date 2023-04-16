@@ -69,10 +69,14 @@ export class CreateHolidayComponent implements OnInit {
     });
   }
 
-  public getNumberOfDaysForSelectedMonth(month: number): number{
+  public getNumberOfDaysForSelectedMonth(month: number, year: number): number{
     switch(month) {
       case 2:
-        return 28;
+        if(year % 4 == 0){
+          return 29;
+        } else {
+          return 28;
+        }
       case 4:
       case 6:
       case 9:
@@ -92,7 +96,7 @@ export class CreateHolidayComponent implements OnInit {
       alert("Month must be in range 1-12");
       return false;
     }
-    var dayUpperLimit = this.getNumberOfDaysForSelectedMonth(this.pickedMonth);
+    var dayUpperLimit = this.getNumberOfDaysForSelectedMonth(this.pickedMonth, this.pickedYear!);
     if(!this.pickedDay || this.pickedDay < 1, this.pickedDay > dayUpperLimit){
       alert("Month must be in range 1-"+ dayUpperLimit);
       return false;
