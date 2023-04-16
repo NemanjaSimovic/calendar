@@ -96,9 +96,9 @@ export class CreateHolidayComponent implements OnInit {
       alert("Month must be in range 1-12");
       return false;
     }
-    var dayUpperLimit = this.getNumberOfDaysForSelectedMonth(this.pickedMonth, this.pickedYear!);
-    if(!this.pickedDay || this.pickedDay < 1, this.pickedDay > dayUpperLimit){
-      alert("Month must be in range 1-"+ dayUpperLimit);
+    var dayUpperLimit = this.getNumberOfDaysForSelectedMonth(this.pickedMonth, this.pickedYear ?? 1);
+    if(!this.pickedDay || this.pickedDay < 1 || this.pickedDay > dayUpperLimit){
+      alert("Day must be in range 1-"+ dayUpperLimit);
       return false;
     }
 
