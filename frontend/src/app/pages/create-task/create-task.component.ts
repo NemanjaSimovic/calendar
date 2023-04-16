@@ -169,7 +169,7 @@ export class CreateTaskComponent implements OnInit {
     this.calendartaskService.addNewCalendarTask(this.title, this.description,
       this.startTime, this.endTime, this.pickedCalendarId, this.creatorId,
       this.pickedCalednarColorId, this.pickedEmojiId, this.selectedUsersIds,
-      true, false, undefined, undefined)
+      false, true, undefined, undefined)
       .subscribe( data => {
         alert("Task successfully created!");
     });
