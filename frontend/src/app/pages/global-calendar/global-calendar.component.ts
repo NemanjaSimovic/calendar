@@ -42,16 +42,16 @@ export class GlobalCalendarComponent implements OnInit {
   public weekDays: string[] = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"];
 
   public maxDaysOfTheMonth = 30;
-  public dt: Date = new Date();
+  public firstDayOfTheSelectedMonth: Date = new Date();
   public dayOfTheWeek: number = 1;
-  public unfixedTasks: Calendartaskextended[] = [];
+
   public tasks: Calendartaskextended[] = [];
   public filteredTasksByCalendarIds: Calendartaskextended[] = [];
 
   public holidays: CalendarHolidayDto[] = [];
   public filteredHolidaysByCalendarIds: CalendarHolidayDto[] = [];
 
-  public daysOfTheMonth: Calendartaskextended[][] = new Array(31);
+  public tasksOfTheMonth: Calendartaskextended[][] = new Array(31);
   public holidaysOfTheMonth: CalendarHolidayDto[][] = new Array(31);
 
   public selectedDay: number = 0;
@@ -83,14 +83,14 @@ export class GlobalCalendarComponent implements OnInit {
   public monthChanged(value: any, widget: any): void {
     this.monthAndYear = value;
     if(this.monthAndYear)
-      this.dt = new Date(this.monthAndYear.getFullYear(), this.monthAndYear.getMonth(), 1);
+      this.firstDayOfTheSelectedMonth = new Date(this.monthAndYear.getFullYear(), this.monthAndYear.getMonth(), 1);
     this.chooseMonth();
     widget.close();
   }
 
   public setPickedMonthToTodays(){
     this.monthAndYear = new Date();
-    this.dt = new Date(this.monthAndYear.getFullYear(), this.monthAndYear.getMonth(), 1);
+    this.firstDayOfTheSelectedMonth = new Date(this.monthAndYear.getFullYear(), this.monthAndYear.getMonth(), 1);
     this.chooseMonth();
   }
 
@@ -104,7 +104,7 @@ export class GlobalCalendarComponent implements OnInit {
 
   public emptyTaskMatrix(){
     for(var i=0; i<=31; i++){
-      this.daysOfTheMonth[i] = [];
+      this.tasksOfTheMonth[i] = [];
     }
   }
 
@@ -117,7 +117,7 @@ export class GlobalCalendarComponent implements OnInit {
   public assignTasksByDay(){
     this.filteredTasksByCalendarIds.forEach(element => {
       var taskDate = new Date(element.startTime).getDate();
-      this.daysOfTheMonth[taskDate].push(element);
+      this.tasksOfTheMonth[taskDate].push(element);
     });
   }
 
@@ -131,14 +131,14 @@ export class GlobalCalendarComponent implements OnInit {
   public printMatrix(){
     for(var i=1; i<= this.maxDaysOfTheMonth; i++){
       console.log("Tasks for " + (i).toString() + ". are: ");
-      this.daysOfTheMonth[i].forEach(element => {
+      this.tasksOfTheMonth[i].forEach(element => {
         console.log(element);
       });
     }
   }
 
   public setNumberOfDaysForSelectedMonth(){
-    var month = this.dt.getMonth() + 1;
+    var month = this.firstDayOfTheSelectedMonth.getMonth() + 1;
 
     switch(month) {
       case 2:
@@ -156,8 +156,8 @@ export class GlobalCalendarComponent implements OnInit {
   }
 
   public setWeekDayOfFirstOfTheMonth(){
-    this.dt.setDate(1);
-    this.dayOfTheWeek = this.dt.getDay();
+    this.firstDayOfTheSelectedMonth.setDate(1);
+    this.dayOfTheWeek = this.firstDayOfTheSelectedMonth.getDay();
     if(this.dayOfTheWeek <= 0){
       this.dummyCells = this.numSequence(6);
     }else if(this.dayOfTheWeek == 1){
@@ -219,16 +219,16 @@ export class GlobalCalendarComponent implements OnInit {
   public chooseMonth(){
     var lastDirecotry = this.getLastUrlDirectory();
     if(lastDirecotry == this.utilitiesService.globalCalendarLastDirectory){
-      this.taskService.getCaltasksByMonth(this.dt).subscribe((data) => {
+      this.taskService.getCaltasksByMonth(this.firstDayOfTheSelectedMonth).subscribe((data) => {
         this.proccessTaskData(data);
       });
     }else{
-      this.taskService.getCaltasksByIdAndMonth(this.dt).subscribe((data) => {
+      this.taskService.getCaltasksByIdAndMonth(this.firstDayOfTheSelectedMonth).subscribe((data) => {
         this.proccessTaskData(data);
       });
     }
 
-    this.calendarHolidayService.getCaltaskDtosByMonth(this.dt.getMonth()+1, this.dt.getFullYear()).subscribe((data => {
+    this.calendarHolidayService.getCaltaskDtosByMonth(this.firstDayOfTheSelectedMonth.getMonth()+1, this.firstDayOfTheSelectedMonth.getFullYear()).subscribe((data => {
       this.proccessHolidayData(data);
     }));
   }
